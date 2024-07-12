@@ -535,6 +535,7 @@ GameObject:
   - component: {fileID: 1018397642}
   - component: {fileID: 1018397641}
   - component: {fileID: 1018397640}
+  - component: {fileID: 1018397643}
   m_Layer: 0
   m_Name: top
   m_TagString: Wall
@@ -551,7 +552,7 @@ Transform:
   m_GameObject: {fileID: 1018397638}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 27}
+  m_LocalPosition: {x: 0, y: 0, z: 50}
   m_LocalScale: {x: 100, y: 10, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -628,6 +629,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1018397638}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1018397643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018397638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b0f23a4c8a70dc43924c9bae21b1ddf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1267734536
 GameObject:
   m_ObjectHideFlags: 0
@@ -1090,7 +1103,7 @@ Transform:
   m_GameObject: {fileID: 1572306990}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -27}
+  m_LocalPosition: {x: 0, y: 0, z: -50}
   m_LocalScale: {x: 100, y: 10, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1203,7 +1216,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1572306990}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afff8586917a70b40ab2c58f7e9077a1, type: 3}
+  m_Script: {fileID: 11500000, guid: 6b0f23a4c8a70dc43924c9bae21b1ddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1696936957
@@ -1265,6 +1278,7 @@ GameObject:
   - component: {fileID: 1753438660}
   - component: {fileID: 1753438659}
   - component: {fileID: 1753438658}
+  - component: {fileID: 1753438661}
   m_Layer: 0
   m_Name: left
   m_TagString: Wall
@@ -1282,7 +1296,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -50, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 10, z: 70}
+  m_LocalScale: {x: 1, y: 10, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2020427360}
@@ -1358,6 +1372,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1753438656}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1753438661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1753438656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b0f23a4c8a70dc43924c9bae21b1ddf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1813107798
 GameObject:
   m_ObjectHideFlags: 0
@@ -1593,6 +1619,7 @@ GameObject:
   - component: {fileID: 2060367740}
   - component: {fileID: 2060367739}
   - component: {fileID: 2060367738}
+  - component: {fileID: 2060367741}
   m_Layer: 0
   m_Name: right
   m_TagString: Wall
@@ -1610,7 +1637,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 50, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 10, z: 70}
+  m_LocalScale: {x: 1, y: 10, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2020427360}
@@ -1686,6 +1713,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2060367736}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2060367741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060367736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b0f23a4c8a70dc43924c9bae21b1ddf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

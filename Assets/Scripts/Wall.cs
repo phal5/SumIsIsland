@@ -4,5 +4,11 @@ using UnityEngine;
 
 public class Wall : MonoBehaviour
 {
-
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "FloatObj")
+        {
+            Destroy(other.gameObject);
+        }
+    }
 }
