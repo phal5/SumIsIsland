@@ -58,15 +58,15 @@ Material:
     - _DistanceBlendThreshold: 0.7
     - _DitherParticleSizeInv: 0.497
     - _DstBlend: 10
-    - _FoamDensity: 8.11
+    - _FoamDensity: 0.8
     - _FoamDistance: -2
-    - _FoamNoiseSpeed: 30
+    - _FoamNoiseSpeed: 8
     - _FoamRange: -2
     - _FoamVisibleRange: 500
     - _FoamWidth: -2
     - _Indirect: 0.25
     - _InverseNoise2Scale: 0.1
-    - _InverseNoiseScale: 1.39322
+    - _InverseNoiseScale: 0.3
     - _InverseWavelength: -0.19
     - _Line1: 0.85
     - _Line2: 0.87
@@ -74,7 +74,7 @@ Material:
     - _MAIN_LIGHT_SHADOWS_CASCADE: 0
     - _MaxTransparentDepth: 62.1
     - _Noise2Speed: 0.2
-    - _Noise2Strength: 20
+    - _Noise2Strength: 13.4
     - _NoiseNormalStrength: 0.2
     - _NoiseNormalStrength2: 0
     - _NoiseSpeed: 0.5
