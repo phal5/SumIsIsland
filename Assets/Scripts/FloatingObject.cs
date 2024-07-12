@@ -16,6 +16,7 @@ public class FloatingObject : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        rb.velocity = FlowManager.Flow();
         Island1Pos = GameObject.Find("Island1").transform;
         Island2Pos = GameObject.Find("Island2").transform;
     }
@@ -24,7 +25,10 @@ public class FloatingObject : MonoBehaviour
     {
         if (!isConnected && isPulledBy == 0)
         {
-            transform.Translate(transform.forward * (-1f) * speed);
+            rb.velocity *= 1 - FlowManager.Resistance();
+
+            Vector3 flow = FlowManager.Flow();
+            rb.velocity -= Vector3.Dot(flow.normalized, rb.velocity - flow) * flow.normalized * (1 - FlowManager.Resistance());
         }
         else if(isPulledBy == 1)
         {
@@ -33,13 +37,7 @@ public class FloatingObject : MonoBehaviour
         else if(isPulledBy == 2)
         {
             transform.position = Vector3.MoveTowards(transform.position, Island2Pos.position, Time.deltaTime * 100);
-        }
-
-        if(Vector3.forward != transform.forward)
-        {
-            if(speed > 0.1f) { speed -= acc; }
-        }
-        
+        }        
     }
 
     void OnTriggerEnter(Collider other)
