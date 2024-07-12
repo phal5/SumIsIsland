@@ -55,8 +55,8 @@ Material:
     - _Cull: 2
     - _DarkLine: -1.05
     - _Defluff: 0
-    - _DistanceBlendThreshold: 0.7
-    - _DitherParticleSizeInv: 0.497
+    - _DistanceBlendThreshold: 10000
+    - _DitherParticleSizeInv: 1
     - _DstBlend: 10
     - _FoamDensity: 0.8
     - _FoamDistance: -2
@@ -68,7 +68,7 @@ Material:
     - _InverseNoise2Scale: 0.1
     - _InverseNoiseScale: 0.3
     - _InverseWavelength: -0.19
-    - _Line1: 0.85
+    - _Line1: 0.95
     - _Line2: 0.87
     - _MAIN_LIGHT_CALCULATE_SHADOWS: 1
     - _MAIN_LIGHT_SHADOWS_CASCADE: 0
@@ -94,7 +94,7 @@ Material:
     - _ZTest: 4
     - _ZWrite: 0
     - _ZWriteControl: 0
-    - _blendStrength: 8
+    - _blendStrength: 0.2
     - _depth: 0
     - _foamSize: 0.026
     - _foam_speed: 5
