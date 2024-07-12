@@ -26,11 +26,7 @@ public class Bomb : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Harpoon1" || other.tag == "Harpoon2")
-        {
-            transform.LookAt(other.transform.forward);
-        }
-        else if(other.tag == "Wall")
+        if(other.tag == "Wall")
         {
             // 충돌 지점과 충돌 물체의 중심을 이용해 법선 벡터 계산
             Vector3 contactPoint = other.ClosestPoint(transform.position);
@@ -44,6 +40,15 @@ public class Bomb : MonoBehaviour
 
             // 물체의 이동 방향을 반사 벡터로 설정
             transform.forward = reflectVector;
+
+        }
+        else if (other.tag == "Harpoon1" || other.tag == "Harpoon2")
+        {
+            transform.LookAt(other.transform.forward);
+        }
+        else
+        {
+
         }
         /*
         else if(other.tag == "Island1" || other.tag == "Island2")
