@@ -10,6 +10,7 @@ TagManager:
   - Harpoon2
   - Island1
   - Island2
+  - Bomb
   layers:
   - Default
   - TransparentFX

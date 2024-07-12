@@ -28,7 +28,7 @@ public class FloatsGenerator : MonoBehaviour
 
     private void generateObj()
     {
-        int objIndex = Random.Range(0, FloatsObj.Count-1);
+        int objIndex = Random.Range(0, FloatsObj.Count);
         GameObject newObj = GameObject.Instantiate(FloatsObj[objIndex]);
 
         float randPos = Random.Range(-50, 50);
