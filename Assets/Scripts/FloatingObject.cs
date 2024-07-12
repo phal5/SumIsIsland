@@ -44,30 +44,29 @@ public class FloatingObject : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Harpoon1" && !isConnected) // 작살
+        if (other.tag == "Harpoon1" && !isConnected) // 작살 1에 맞은 경우
         {
             isPulledBy = 1;
         }
-        else if (other.tag == "Harpoon2" && !isConnected)
+        else if (other.tag == "Harpoon2" && !isConnected) // 작살 2에 맞은 경우
         {
             isPulledBy = 2;
-            Debug.Log("hit by 2");
         }
-        else if(other.tag == "Island1" &&  isPulledBy == 1)
+        else if(other.tag == "Island1" &&  isPulledBy == 1) // 작살 1에 끌어당겨져 섬1에 붙은 경우
         {
             transform.parent = other.transform;
             transform.gameObject.tag = "Island1";
             isConnected = true;
             isPulledBy = 0;
         }
-        else if(other.tag == "Island2" && isPulledBy == 2)
+        else if(other.tag == "Island2" && isPulledBy == 2) // 작살 2에 끌어당겨져 섬2에 붙은 경우
         {
             transform.parent = other.transform;
             transform.gameObject.tag = "Island2";
             isConnected = true;
             isPulledBy = 0;
         }
-        else if(other.tag == "Island1" || other.tag == "Island2")
+        else if(other.tag == "Island1" || other.tag == "Island2") // 섬1,2에 튕긴 경우
         {
             // 충돌 지점과 충돌 물체의 중심을 이용해 법선 벡터 계산
             Vector3 contactPoint = other.ClosestPoint(transform.position);
