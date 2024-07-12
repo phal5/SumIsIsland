@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FloatsGenerator : MonoBehaviour
 {
-    public GameObject FloatsObj;
+    public List<GameObject> FloatsObj = new List<GameObject>();
     public Transform GenPos;
 
     List<GameObject> FloatArr = new List<GameObject>();
@@ -14,11 +14,6 @@ public class FloatsGenerator : MonoBehaviour
     {
         isGenerate = true;
         StartCoroutine(callGenerator());
-    }
-
-    void Update()
-    {
-        
     }
 
     IEnumerator callGenerator()
@@ -33,7 +28,8 @@ public class FloatsGenerator : MonoBehaviour
 
     private void generateObj()
     {
-        GameObject newObj = GameObject.Instantiate(FloatsObj);
+        int objIndex = Random.Range(0, FloatsObj.Count-1);
+        GameObject newObj = GameObject.Instantiate(FloatsObj[objIndex]);
 
         float randPos = Random.Range(-50, 50);
         newObj.transform.position = GenPos.position + new Vector3(randPos, 0, 0);
