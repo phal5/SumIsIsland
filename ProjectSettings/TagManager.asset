@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Wall
   - FloatObj
+  - Harpoon1
+  - Harpoon2
+  - Island1
+  - Island2
   layers:
   - Default
   - TransparentFX
