@@ -6,7 +6,7 @@ public class FloatingObject : MonoBehaviour
 {
     public float speed = 0.5f;
     public bool isConnected = false;
-    private bool isPulling = false;
+    private int isPulledBy = 0;
     float acc = 0.001f;
     Rigidbody rb;
 
@@ -22,9 +22,17 @@ public class FloatingObject : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!isConnected && !isPulling)
+        if (!isConnected && isPulledBy == 0)
         {
             transform.Translate(transform.forward * (-1f) * speed);
+        }
+        else if(isPulledBy == 1)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, Island1Pos.position, Time.deltaTime * 100);
+        }
+        else if(isPulledBy == 2)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, Island2Pos.position, Time.deltaTime * 100);
         }
 
         if(Vector3.forward != transform.forward)
@@ -36,15 +44,43 @@ public class FloatingObject : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "HarpoonP1")
+        if (other.tag == "Harpoon1" && !isConnected) // 작살
         {
-            Debug.Log("hit by harpoon 1");
-            transform.position = Vector3.MoveTowards(transform.position, Island1Pos.position, Time.deltaTime * speed);
+            isPulledBy = 1;
         }
-        else if (other.tag == "HarpoonP2")
+        else if (other.tag == "Harpoon2" && !isConnected)
         {
-            Debug.Log("hit by harpoon 2");
-            transform.position = Vector3.MoveTowards(transform.position, Island2Pos.position, Time.deltaTime * speed);
+            isPulledBy = 2;
+            Debug.Log("hit by 2");
+        }
+        else if(other.tag == "Island1" &&  isPulledBy == 1)
+        {
+            transform.parent = other.transform;
+            transform.gameObject.tag = "Island1";
+            isConnected = true;
+            isPulledBy = 0;
+        }
+        else if(other.tag == "Island2" && isPulledBy == 2)
+        {
+            transform.parent = other.transform;
+            transform.gameObject.tag = "Island2";
+            isConnected = true;
+            isPulledBy = 0;
+        }
+        else if(other.tag == "Island1" || other.tag == "Island2")
+        {
+            // 충돌 지점과 충돌 물체의 중심을 이용해 법선 벡터 계산
+            Vector3 contactPoint = other.ClosestPoint(transform.position);
+            Vector3 normal = (transform.position - contactPoint).normalized;
+
+            // 입사 벡터는 현재 이동 방향
+            Vector3 incomingVector = transform.forward;
+
+            // 반사 벡터 계산
+            Vector3 reflectVector = Vector3.Reflect(incomingVector, normal);
+
+            // 물체의 이동 방향을 반사 벡터로 설정
+            transform.forward = reflectVector;
         }
     }
 }
