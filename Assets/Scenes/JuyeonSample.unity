@@ -1307,6 +1307,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FloatsObj:
   - {fileID: 7861163853025115392, guid: 774743b412bdfcb40b616ccaa46c77bc, type: 3}
+  - {fileID: 7861163853025115392, guid: 92cd3cb570c3e634291d34313f909473, type: 3}
   GenPos: {fileID: 410864633}
 --- !u!4 &1696936959
 Transform:

@@ -37,7 +37,7 @@ public class FloatingObject : MonoBehaviour
 
         if(Vector3.forward != transform.forward)
         {
-            if(speed > 0f) { speed -= acc; }
+            if(speed > 0.1f) { speed -= acc; }
         }
         
     }
