@@ -67,7 +67,7 @@ Material:
     - _Indirect: 0.25
     - _InverseNoise2Scale: 0.1
     - _InverseNoiseScale: 0.3
-    - _InverseWavelength: -0.19
+    - _InverseWavelength: 0.19
     - _Line1: 0.95
     - _Line2: 0.87
     - _MAIN_LIGHT_CALCULATE_SHADOWS: 1
