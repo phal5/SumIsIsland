@@ -42,7 +42,7 @@ public class Harpoon : MonoBehaviour
 
     void Launch()
     {
-        if (_cool && Input.GetKey(_launch))
+        if (_cool && Input.GetKeyDown(_launch))
         {
             _headRigidbody.transform.position = _launcher.position;
             _headRigidbody.transform.forward = _launcher.forward;
