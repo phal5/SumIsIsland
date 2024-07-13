@@ -20,6 +20,7 @@ public class HarpoonLauncher : MonoBehaviour
     public float _harpoonOffset { get; private set; }
     public HarpoonState _state { get; private set; }
     float _returnTimer;
+    [SerializeField] float _forceReturnTimer;
 
     private void Start()
     {
@@ -38,7 +39,12 @@ public class HarpoonLauncher : MonoBehaviour
                 break;
             case HarpoonState.LAUNCHED:
                 if(_headRigidbody.isKinematic == false) ReturnTimer();
-                else SetLayerOfDirectChildren(_headRigidbody.transform, "NonColliding");
+                else
+                {
+                    SetLayerOfDirectChildren(_headRigidbody.transform, "NonColliding");
+                    _forceReturnTimer -= Time.deltaTime;
+                    if (_forceReturnTimer < 0) ForceReturn();
+                }
                 break;
         }
     }
@@ -61,6 +67,7 @@ public class HarpoonLauncher : MonoBehaviour
 
         _state = HarpoonState.LAUNCHED;
         _returnTimer = _returnAfter;
+        _forceReturnTimer = 7;
     }
 
     void Rotate()
@@ -74,7 +81,7 @@ public class HarpoonLauncher : MonoBehaviour
             transform.Rotate(Vector3.up * _rotationSpeed * Time.deltaTime);
         }
         _launcher.position = Vector3.Scale(_launcher.position, Vector3.one + Vector3.down);
-        _launcher.position += (transform.forward.z * -0.01f + transform.position.y) * Vector3.up;
+        _launcher.position += (transform.position.y + ((transform.forward.z > 0) ? -0.01f : 0.01f)) * Vector3.up;
     }
 
     void ReturnTimer()
@@ -102,6 +109,18 @@ public class HarpoonLauncher : MonoBehaviour
             _headRigidbody.angularVelocity = Vector3.zero;
             _state = HarpoonState.COOL;
         }
+    }
+
+    void ForceReturn()
+    {
+        if(_headRigidbody.transform.parent != null)
+        {
+            Transform parent = _headRigidbody.transform.parent;
+            _headRigidbody.transform.parent = transform.parent;
+            _headRigidbody.isKinematic = false;
+            Destroy(parent);
+        }
+        _state = HarpoonState.RETURN;
     }
 
     void SetLayerOfDirectChildren(Transform parent, string layerName)
