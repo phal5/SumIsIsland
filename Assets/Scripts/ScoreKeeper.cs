@@ -48,6 +48,18 @@ public class ScoreKeeper : MonoBehaviour
         }
     }
 
+    public void Hit(int player_index, float damage)
+    {
+        if (player_index == 1)
+        {
+            HP_1P -= damage;
+        }
+        else
+        {
+            HP_2P -= damage;
+        }
+    }
+
     private void checkGameOver()
     {
         if(HP_1P < 0)

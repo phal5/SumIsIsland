@@ -30,8 +30,8 @@ public class DestroyPlatforms : MonoBehaviour
                 rb.velocity = (collider.transform.position - transform.position).normalized / divisor * _force;
             }
         }
-        if ((IslandManager.Island1().position - transform.position).sqrMagnitude < _radius * _radius) ;
-        if ((IslandManager.Island2().position - transform.position).sqrMagnitude < _radius * _radius) ;
+        if ((IslandManager.Island1().position - transform.position).sqrMagnitude < _radius * _radius) ApplyDamage(1);
+        if ((IslandManager.Island2().position - transform.position).sqrMagnitude < _radius * _radius) ApplyDamage(2);
         _onDestroy.Invoke();
     }
 
@@ -44,4 +44,6 @@ public class DestroyPlatforms : MonoBehaviour
     {
         Destroy(this);
     }
+
+    virtual protected void ApplyDamage(int island) { }
 }
