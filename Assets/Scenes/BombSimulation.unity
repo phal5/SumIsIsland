@@ -190,7 +190,7 @@ Transform:
   m_GameObject: {fileID: 90999137}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -30}
+  m_LocalPosition: {x: 0, y: 1, z: 25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -434,8 +434,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FloatsObj:
-  - {fileID: 7861163853025115392, guid: 774743b412bdfcb40b616ccaa46c77bc, type: 3}
+  - {fileID: 7861163853025115392, guid: 92cd3cb570c3e634291d34313f909473, type: 3}
   GenPos: {fileID: 90999138}
+  isGenerate: 0
 --- !u!4 &318655304
 Transform:
   m_ObjectHideFlags: 0
@@ -462,6 +463,10 @@ PrefabInstance:
     - target: {fileID: 76150387836655928, guid: 774743b412bdfcb40b616ccaa46c77bc, type: 3}
       propertyPath: isConnected
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2484244319559180684, guid: 774743b412bdfcb40b616ccaa46c77bc, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5573756994582499851, guid: 774743b412bdfcb40b616ccaa46c77bc, type: 3}
       propertyPath: m_LocalScale.x
@@ -819,6 +824,10 @@ PrefabInstance:
       propertyPath: isConnected
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2484244319559180684, guid: 774743b412bdfcb40b616ccaa46c77bc, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5573756994582499851, guid: 774743b412bdfcb40b616ccaa46c77bc, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -896,6 +905,10 @@ PrefabInstance:
       propertyPath: isConnected
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2484244319559180684, guid: 774743b412bdfcb40b616ccaa46c77bc, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5573756994582499851, guid: 774743b412bdfcb40b616ccaa46c77bc, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -972,6 +985,10 @@ PrefabInstance:
     - target: {fileID: 76150387836655928, guid: 774743b412bdfcb40b616ccaa46c77bc, type: 3}
       propertyPath: isConnected
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2484244319559180684, guid: 774743b412bdfcb40b616ccaa46c77bc, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5573756994582499851, guid: 774743b412bdfcb40b616ccaa46c77bc, type: 3}
       propertyPath: m_LocalScale.x
@@ -1055,6 +1072,10 @@ PrefabInstance:
     - target: {fileID: 76150387836655928, guid: 774743b412bdfcb40b616ccaa46c77bc, type: 3}
       propertyPath: isConnected
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2484244319559180684, guid: 774743b412bdfcb40b616ccaa46c77bc, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5573756994582499851, guid: 774743b412bdfcb40b616ccaa46c77bc, type: 3}
       propertyPath: m_LocalScale.x
@@ -1199,6 +1220,52 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5573756994582499851, guid: 774743b412bdfcb40b616ccaa46c77bc, type: 3}
   m_PrefabInstance: {fileID: 340619190}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1073697461
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1073697463}
+  - component: {fileID: 1073697462}
+  m_Layer: 0
+  m_Name: FlowManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1073697462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1073697461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19b891daac91c8e49b5b0a79820a25f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _flow: {x: 0, y: 0, z: -9}
+  _resistance: 0.01
+--- !u!4 &1073697463
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1073697461}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -23.047867, y: -57.741867, z: 16.149807}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1097588797
 GameObject:
   m_ObjectHideFlags: 0
@@ -1243,6 +1310,10 @@ PrefabInstance:
     - target: {fileID: 76150387836655928, guid: 774743b412bdfcb40b616ccaa46c77bc, type: 3}
       propertyPath: isConnected
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2484244319559180684, guid: 774743b412bdfcb40b616ccaa46c77bc, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5573756994582499851, guid: 774743b412bdfcb40b616ccaa46c77bc, type: 3}
       propertyPath: m_LocalScale.x
@@ -1826,6 +1897,10 @@ PrefabInstance:
       propertyPath: isConnected
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2484244319559180684, guid: 774743b412bdfcb40b616ccaa46c77bc, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5573756994582499851, guid: 774743b412bdfcb40b616ccaa46c77bc, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -1939,7 +2014,7 @@ Transform:
   m_GameObject: {fileID: 1912924135}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -40}
+  m_LocalPosition: {x: 0, y: 0, z: -25}
   m_LocalScale: {x: 100, y: 10, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2271,6 +2346,10 @@ PrefabInstance:
       propertyPath: isConnected
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2484244319559180684, guid: 774743b412bdfcb40b616ccaa46c77bc, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5573756994582499851, guid: 774743b412bdfcb40b616ccaa46c77bc, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.7
@@ -2470,3 +2549,4 @@ SceneRoots:
   - {fileID: 1097588798}
   - {fileID: 1478684698}
   - {fileID: 661638917}
+  - {fileID: 1073697463}
