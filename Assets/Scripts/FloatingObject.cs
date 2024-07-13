@@ -105,12 +105,13 @@ public class FloatingObject : MonoBehaviour
 
     public void SetConnection(bool connected)
     {
-        rb.isKinematic = false;
         isConnected = connected;
         rb.angularVelocity = Vector3.zero;
         rb.velocity = Vector3.zero;
         rb.isKinematic = connected;
         gameObject.layer = LayerMask.NameToLayer(connected ? "Island" : "Default");
+
+        if (!connected) transform.parent = null;
     }
 
     void Fix(Rigidbody rigidBody)

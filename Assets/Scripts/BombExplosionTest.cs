@@ -10,6 +10,8 @@ public class BombExplosionTest : MonoBehaviour
     GameObject myIsland2;
 
     Animator myAnimator;
+    float _timer;
+
     void Start()
     {
         myIsland1 = GameObject.Find("Island1");
@@ -55,8 +57,6 @@ public class BombExplosionTest : MonoBehaviour
                 checkIslandFloatables(floating);
             }
         }
-        
-
     }
 
     private bool isWithinRadius(Transform other)

@@ -101,7 +101,7 @@ public class HarpoonLauncher : MonoBehaviour
         float proximity = (_headRigidbody.transform.position - _launcher.position - _launcher.transform.up * _harpoonOffset).sqrMagnitude;
 
         _headRigidbody.transform.rotation =
-            Quaternion.Lerp(Quaternion.LookRotation(-_headRigidbody.velocity, Vector3.up), _headRigidbody.transform.rotation, (proximity > 100) ? 0.95f : proximity * 0.01f);
+            Quaternion.Lerp(Quaternion.LookRotation(_launcher.transform.up, Vector3.up), _headRigidbody.transform.rotation, (proximity > 100) ? 0.95f : proximity * 0.01f);
 
         if(proximity < 1)
         {
