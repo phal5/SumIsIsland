@@ -6,13 +6,12 @@ using UnityEngine.Events;
 
 public class DestroyPlatforms : MonoBehaviour
 {
-    [SerializeField] float _radius;
     [SerializeField] float _force;
     [SerializeField] UnityEvent _onDestroy;
 
-    public void DestroyPlatformsInsideRadius()
+    public void DestroyPlatformsInsideRadius(float radius)
     {
-        foreach (Collider collider in CollidersInsideRadius())
+        foreach (Collider collider in CollidersInsideRadius(radius))
         {
             if(collider.gameObject.layer == LayerMask.NameToLayer("Island") && collider.gameObject.TryGetComponent(out FloatingObject fO))
             {
@@ -32,9 +31,9 @@ public class DestroyPlatforms : MonoBehaviour
         _onDestroy.Invoke();
     }
 
-    Collider[] CollidersInsideRadius()
+    Collider[] CollidersInsideRadius(float radius)
     {
-        return Physics.OverlapSphere(transform.position, _radius);
+        return Physics.OverlapSphere(transform.position, radius);
     }
 
     public void DestroyGameObject()
