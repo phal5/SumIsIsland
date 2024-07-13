@@ -15,6 +15,7 @@ public class Bomb : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        rb.velocity = FlowManager.Flow();
     }
 
     void FixedUpdate()
@@ -28,6 +29,14 @@ public class Bomb : MonoBehaviour
         if (_reflect && other.gameObject.TryGetComponent(out Wall wall))
         {
             rb.velocity = Vector3.Scale(rb.velocity, wall._reflection);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.layer == LayerMask.NameToLayer("Harpoon"))
+        {
+            _reflect = true;
         }
     }
 }

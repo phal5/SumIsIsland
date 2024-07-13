@@ -7,6 +7,9 @@ public class FloatsGenerator : MonoBehaviour
     public List<GameObject> FloatsObj = new List<GameObject>();
     public Transform GenPos;
 
+    [SerializeField] float _delay = 1.75f;
+    [SerializeField] float _randomness = 1.5f;
+
     List<GameObject> FloatArr = new List<GameObject>();
     bool isGenerate;
     
@@ -21,7 +24,7 @@ public class FloatsGenerator : MonoBehaviour
         while (isGenerate)
         {
             generateObj();
-            float delay = Random.Range(0.5f, 3f);
+            float delay = _delay + Random.Range(-_randomness * 0.5f, _randomness * 0.5f);
             yield return new WaitForSeconds(delay);
         }
     }
