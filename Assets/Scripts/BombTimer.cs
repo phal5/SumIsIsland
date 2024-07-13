@@ -5,6 +5,8 @@ using UnityEngine;
 public class BombTimer : MonoBehaviour
 {
     [SerializeField] DestroyPlatforms _explosive;
+    [SerializeField] float _radius = 15;
+    [Space(10f)]
     [SerializeField] Collider _collider;
     [SerializeField] float _timer = 5f;
 
@@ -20,9 +22,9 @@ public class BombTimer : MonoBehaviour
             _timer -= Time.deltaTime;
             if(_timer < 0)
             {
-                _explosive.DestroyPlatformsInsideRadius();
+                SetOff();
                 _collider.enabled = false;
-                Destroy(this);
+                _startTicking = false;
             }
         }
         else if (_destroyTicking)
@@ -39,11 +41,27 @@ public class BombTimer : MonoBehaviour
     {
         if(collision.gameObject.layer == LayerMask.NameToLayer("Island") && _startTicking)
         {
-            _explosive.DestroyPlatformsInsideRadius();
+            SetOff();
         }
         else if(collision.gameObject.layer == LayerMask.NameToLayer("Harpoon"))
         {
             _startTicking = true;
+        }
+    }
+
+    void SetOff()
+    {
+        _explosive.DestroyPlatformsInsideRadius(_radius);
+        foreach (Collider collider in Physics.OverlapSphere(transform.position, _radius))
+        {
+            if (collider.gameObject.TryGetComponent(out Bomb bomb))
+            {
+                bomb.Activate();
+            }
+            if (collider.gameObject.TryGetComponent(out BombTimer timer))
+            {
+                timer._startTicking = true;
+            }
         }
     }
 

@@ -32,8 +32,14 @@ public class Bomb : MonoBehaviour
     {
         if(collision.gameObject.layer == LayerMask.NameToLayer("Harpoon"))
         {
-            _reflect = true;
-            gameObject.tag = "Untagged";
+            Activate();
+            collision.gameObject.GetComponent<Harpoon>().Return();
         }
+    }
+
+    public void Activate()
+    {
+        _reflect = true;
+        gameObject.tag = "Untagged";
     }
 }
