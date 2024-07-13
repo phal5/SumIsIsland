@@ -434,9 +434,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FloatsObj:
+  - {fileID: 7861163853025115392, guid: d480d4334eceb21418dfeaf566b269bb, type: 3}
+  - {fileID: 7861163853025115392, guid: 96be2dbee4f576b48af59552454d2775, type: 3}
+  - {fileID: 7861163853025115392, guid: 774be5ea64be8014eac9767ea52f6f60, type: 3}
+  - {fileID: 7861163853025115392, guid: b50f3048f0103904ea62cbf65b25c4dd, type: 3}
+  - {fileID: 7861163853025115392, guid: 5ea35bf53b048c348a85302e25e9ac12, type: 3}
+  - {fileID: 7861163853025115392, guid: 8c638ab5ca434de4a9aa0403a2979cda, type: 3}
+  - {fileID: 7861163853025115392, guid: 22f650a52020eb5489a8e76dc9426b5a, type: 3}
+  - {fileID: 7861163853025115392, guid: 21669b5b9e8280c4da8e656b193f8532, type: 3}
+  - {fileID: 7861163853025115392, guid: 93b8a4f76ac74db47a41e41c10d783a3, type: 3}
+  - {fileID: 7861163853025115392, guid: 94c870dbc67ffa847a0c07d4239babd6, type: 3}
+  - {fileID: 7861163853025115392, guid: acbaaa056c65ee843aa61c53aabaaba2, type: 3}
+  - {fileID: 7861163853025115392, guid: fbe731a725a7c15428a84bfbed17bc11, type: 3}
+  - {fileID: 7861163853025115392, guid: 908d3473312c9e146924ff599ac48f79, type: 3}
+  - {fileID: 7861163853025115392, guid: 3fb7ec0a2ceb2df489ac082afea03b3b, type: 3}
+  - {fileID: 7861163853025115392, guid: 46b69f70310cc59478027c53f44944b9, type: 3}
+  - {fileID: 7861163853025115392, guid: 64fc4a46698513c41981cf517df67b0a, type: 3}
   - {fileID: 7861163853025115392, guid: 92cd3cb570c3e634291d34313f909473, type: 3}
   GenPos: {fileID: 90999138}
-  isGenerate: 0
+  _delay: 1.75
+  _randomness: 1.5
 --- !u!4 &318655304
 Transform:
   m_ObjectHideFlags: 0
@@ -1455,6 +1472,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b0f23a4c8a70dc43924c9bae21b1ddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _destroyOnTouch: 1
+  _reflection: {x: 1, y: 1, z: 1}
 --- !u!65 &1249624033
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1780,6 +1799,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b0f23a4c8a70dc43924c9bae21b1ddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _destroyOnTouch: 1
+  _reflection: {x: 1, y: 1, z: 1}
 --- !u!65 &1418708139
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2032,6 +2053,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b0f23a4c8a70dc43924c9bae21b1ddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _destroyOnTouch: 1
+  _reflection: {x: 1, y: 1, z: 1}
 --- !u!54 &1912924138
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2205,6 +2228,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b0f23a4c8a70dc43924c9bae21b1ddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _destroyOnTouch: 1
+  _reflection: {x: 1, y: 1, z: 1}
 --- !u!65 &1998480125
 BoxCollider:
   m_ObjectHideFlags: 0
