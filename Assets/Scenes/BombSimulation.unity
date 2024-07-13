@@ -434,7 +434,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FloatsObj:
-  - {fileID: 7861163853025115392, guid: 92cd3cb570c3e634291d34313f909473, type: 3}
+  - {fileID: 7861163853025115392, guid: d480d4334eceb21418dfeaf566b269bb, type: 3}
+  - {fileID: 7861163853025115392, guid: 96be2dbee4f576b48af59552454d2775, type: 3}
+  - {fileID: 7861163853025115392, guid: 774be5ea64be8014eac9767ea52f6f60, type: 3}
+  - {fileID: 7861163853025115392, guid: b50f3048f0103904ea62cbf65b25c4dd, type: 3}
+  - {fileID: 7861163853025115392, guid: 5ea35bf53b048c348a85302e25e9ac12, type: 3}
   GenPos: {fileID: 90999138}
   _delay: 1.75
   _randomness: 1.5
