@@ -36,8 +36,8 @@ public class DestroyPlatforms : MonoBehaviour
         return Physics.OverlapSphere(transform.position, radius);
     }
 
-    public void DestroyGameObject()
+    public void DestroyThis()
     {
-        Destroy(gameObject);
+        Destroy(this);
     }
 }

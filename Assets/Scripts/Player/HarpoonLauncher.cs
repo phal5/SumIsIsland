@@ -67,7 +67,7 @@ public class HarpoonLauncher : MonoBehaviour
 
         _state = HarpoonState.LAUNCHED;
         _returnTimer = _returnAfter;
-        _forceReturnTimer = 7;
+        _forceReturnTimer = 5;
     }
 
     void Rotate()

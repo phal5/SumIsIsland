@@ -254,6 +254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _explosive: {fileID: 7757822189901430431}
+  _radius: 15
   _collider: {fileID: 7813560366856859406}
   _timer: 5
 --- !u!114 &7757822189901430431
@@ -268,7 +269,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5cb9d34dceb79f44a7c61cc66302fd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _radius: 15
   _force: 30000
   _onDestroy:
     m_PersistentCalls:
@@ -309,6 +309,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 7757822189901430431}
+        m_TargetAssemblyTypeName: DestroyPlatforms, Assembly-CSharp
+        m_MethodName: DestroyThis
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!54 &9199194002739507538
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -335,7 +347,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 84
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!136 &7813560366856859406
 CapsuleCollider:
   m_ObjectHideFlags: 0
