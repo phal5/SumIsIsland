@@ -8,6 +8,8 @@ public class BombExplosion : MonoBehaviour
     public float bombRadius = 1f;
     GameObject myIsland1;
     GameObject myIsland2;
+
+    Animator myAnimator;
     void Start()
     {
         myIsland1 = GameObject.Find("Island1");
@@ -32,6 +34,7 @@ public class BombExplosion : MonoBehaviour
                     checkIslandFloatables(cur_child);
                 }
             }
+            myAnimator.SetBool("isExplode", true);
         }
     }
 

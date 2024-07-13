@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -3170874276937132118}
   - component: {fileID: 7813560366856859406}
   - component: {fileID: 7944679555388066761}
+  - component: {fileID: 3240752192941083286}
   m_Layer: 0
   m_Name: Bomb
   m_TagString: Bomb
@@ -166,3 +167,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bombRadius: 100
+--- !u!95 &3240752192941083286
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7861163853025115392}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 003f3839ad248a9429c6014c3f83fb16, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
