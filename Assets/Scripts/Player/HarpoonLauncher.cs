@@ -25,9 +25,6 @@ public class HarpoonLauncher : MonoBehaviour
     public HarpoonState _state { get; private set; }
     float _returnTimer;
 
-    //Trivial
-    float _headRotateTimer;
-
     private void Start()
     {
         SetLayerOfDirectChildren(_headRigidbody.transform, "NonColliding");
@@ -123,6 +120,5 @@ public class HarpoonLauncher : MonoBehaviour
     {
         SetLayerOfDirectChildren(_headRigidbody.transform, "NonColliding");
         _state = HarpoonState.RETURN;
-        _headRotateTimer = 0;
     }
 }

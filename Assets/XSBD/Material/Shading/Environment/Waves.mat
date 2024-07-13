@@ -97,7 +97,7 @@ Material:
     - _ZTest: 4
     - _ZWrite: 0
     - _ZWriteControl: 0
-    - _blendStrength: 0.34
+    - _blendStrength: 0.13
     - _depth: 0
     - _foamSize: 0.026
     - _foam_speed: 5

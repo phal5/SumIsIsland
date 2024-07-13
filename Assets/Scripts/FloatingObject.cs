@@ -13,13 +13,22 @@ public class FloatingObject : MonoBehaviour
 
     Rigidbody _harpoon;
     Transform _harpoonParent;
+    bool _sink;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.velocity = FlowManager.Flow();
-        Island1Pos = GameObject.Find("Island1").transform;
-        Island2Pos = GameObject.Find("Island2").transform;
+        Island1Pos = IslandManager.Island1().transform;
+        Island2Pos = IslandManager.Island2().transform;
+    }
+
+    private void Update()
+    {
+        if (_sink)
+        {
+            transform.position += Vector3.down * Time.deltaTime * 0.5f;
+        }
     }
 
     void FixedUpdate()
@@ -48,7 +57,7 @@ public class FloatingObject : MonoBehaviour
                         break;
                     }
             }
-        }  
+        }
     }
 
     void OnCollisionEnter(Collision other)
@@ -132,5 +141,10 @@ public class FloatingObject : MonoBehaviour
         if (rigidBody.TryGetComponent(out Harpoon harpoon)) harpoon.Return();
 
         rb.centerOfMass = Vector3.zero;
+    }
+
+    public void StartSinking()
+    {
+        _sink = true;
     }
 }

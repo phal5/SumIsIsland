@@ -4,12 +4,8 @@ using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
-    public float speed = 0.5f;
     [SerializeField] bool _reflect;
-    [SerializeField] bool _physical;
-    [SerializeField] float _resistance;
-    
-    float acc = 0.001f;
+
     Rigidbody rb;
 
     void Start()
