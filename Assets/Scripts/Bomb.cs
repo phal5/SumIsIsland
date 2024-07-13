@@ -19,26 +19,15 @@ public class Bomb : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.velocity *= 1 - FlowManager.Resistance();
-
         Vector3 flow = FlowManager.Flow();
-        rb.velocity -= Vector3.Dot(flow.normalized, rb.velocity - flow) * flow.normalized * (1 - FlowManager.Resistance());
+        rb.velocity = (rb.velocity - flow) * (1 - FlowManager.Resistance()) + flow;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<Collider>().tag == "Wall")
+        if (_reflect && other.gameObject.TryGetComponent(out Wall wall))
         {
-            Physics.Raycast(transform.position, rb.velocity, out RaycastHit hit);
-            if (hit.collider == other.GetComponent<Collider>())
-            {
-                rb.velocity += Vector3.Dot(hit.normal, rb.velocity) * hit.normal * 2;
-            }
-            else
-            {
-                rb.velocity *= -1;
-            }
-
+            rb.velocity = Vector3.Scale(rb.velocity, wall._reflection);
         }
     }
 }
