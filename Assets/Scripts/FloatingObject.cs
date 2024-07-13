@@ -14,7 +14,7 @@ public class FloatingObject : MonoBehaviour
 
     Rigidbody _harpoon;
     Transform _harpoonParent;
-
+    int _island;
     bool _sink;
 
     void Start()
@@ -84,6 +84,7 @@ public class FloatingObject : MonoBehaviour
             transform.gameObject.tag = "Island1";
             Loosen(_harpoon);
             SetConnection(true);
+            _island = isPulledBy;
             isPulledBy = 0;
             _onceConnected = true;
         }
@@ -93,6 +94,7 @@ public class FloatingObject : MonoBehaviour
             transform.gameObject.tag = "Island2";
             Loosen(_harpoon);
             SetConnection(true);
+            _island = isPulledBy;
             isPulledBy = 0;
             _onceConnected = true;
         }
@@ -125,7 +127,15 @@ public class FloatingObject : MonoBehaviour
         rb.isKinematic = connected;
         gameObject.layer = LayerMask.NameToLayer(connected ? "Island" : "Default");
 
-        if (!connected) transform.parent = null;
+        if (connected)
+        {
+            IslandManager.Enlist(isPulledBy == 1, transform);
+        }
+        else
+        {
+            IslandManager.Remove(_island == 1, transform);
+            transform.parent = null;
+        }
     }
 
     void Fix(Rigidbody rigidBody)
