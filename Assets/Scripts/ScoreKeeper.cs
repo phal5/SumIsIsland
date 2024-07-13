@@ -20,9 +20,12 @@ public class ScoreKeeper : MonoBehaviour
 
     static ScoreKeeper _instance;
 
-    private void Start()
+    GameManager myGameManager;
+
+    void Start()
     {
         _instance = this;
+        myGameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     private void Update()
@@ -61,14 +64,24 @@ public class ScoreKeeper : MonoBehaviour
     {
         if(_instance.HP_1P < 0)
         {
+            _instance.myGameManager.winner_index = 2;
             SceneManager.LoadScene("Ending");
         }
         else if(_instance.HP_2P < 0)
         {
+            _instance.myGameManager.winner_index = 1;
             SceneManager.LoadScene("Ending");
         }
         else if(worldTimer >= _instance.timeLimit)
         {
+            if(_instance.HP_1P > _instance.HP_2P)
+            {
+                _instance.myGameManager.winner_index = 1;
+            }
+            else
+            {
+                _instance.myGameManager.winner_index = 2;
+            }
             SceneManager.LoadScene("Ending");
         }
     }
