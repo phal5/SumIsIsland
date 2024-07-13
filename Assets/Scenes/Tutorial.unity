@@ -321,7 +321,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 44699193}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1341404849}
+        m_TargetAssemblyTypeName: Tutorial, Assembly-CSharp
+        m_MethodName: TutorialFinished
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &44699193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -691,7 +703,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 529516700}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1341404849}
+        m_TargetAssemblyTypeName: Tutorial, Assembly-CSharp
+        m_MethodName: TutorialFinished
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &529516700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -988,7 +1012,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 840642565}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1341404849}
+        m_TargetAssemblyTypeName: Tutorial, Assembly-CSharp
+        m_MethodName: TutorialLeftRightButton
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &840642565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1247,6 +1283,7 @@ GameObject:
   - component: {fileID: 1341404846}
   - component: {fileID: 1341404848}
   - component: {fileID: 1341404847}
+  - component: {fileID: 1341404849}
   m_Layer: 5
   m_Name: tutorial_main
   m_TagString: Untagged
@@ -1311,6 +1348,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1341404845}
   m_CullTransparentMesh: 1
+--- !u!114 &1341404849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1341404845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d9f3b0e438f4954f8a7b399e770c8ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tutorialSprites:
+  - {fileID: 21300000, guid: 9ebf773d9c25cd648a594ea0b37002c5, type: 3}
+  - {fileID: 21300000, guid: 8037dc5ed694e6742a68a06c5838bf24, type: 3}
+  - {fileID: 21300000, guid: a4765052bdeca014a846e8a37c71eb91, type: 3}
+  - {fileID: 21300000, guid: 8a341d95c56a8f84da3c1dc6d7038f0a, type: 3}
+  leftButton: {fileID: 1593388358}
+  rightButton: {fileID: 840642564}
+  okButton: {fileID: 529516699}
 --- !u!1 &1391934752
 GameObject:
   m_ObjectHideFlags: 0
@@ -1610,7 +1667,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1593388359}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1341404849}
+        m_TargetAssemblyTypeName: Tutorial, Assembly-CSharp
+        m_MethodName: TutorialLeftRightButton
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1593388359
 MonoBehaviour:
   m_ObjectHideFlags: 0
