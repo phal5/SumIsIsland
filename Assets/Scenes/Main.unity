@@ -481,6 +481,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4929269583089540293, guid: 679b8f48657ecc941bfcc346a4a74fba, type: 3}
+      propertyPath: m_Size.x
+      value: 5.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929269583089540293, guid: 679b8f48657ecc941bfcc346a4a74fba, type: 3}
+      propertyPath: m_Size.y
+      value: 7.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929269583089540293, guid: 679b8f48657ecc941bfcc346a4a74fba, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d9b3710687e163842b248eb82897274b, type: 3}
+    - target: {fileID: 4929269583089540293, guid: 679b8f48657ecc941bfcc346a4a74fba, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5707184260490458087, guid: 679b8f48657ecc941bfcc346a4a74fba, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: f32c0e9e78062d547b07e2592c80a01b, type: 2}
     - target: {fileID: 9004097928515688400, guid: 679b8f48657ecc941bfcc346a4a74fba, type: 3}
       propertyPath: m_Name
       value: PlayerPrefab2
@@ -989,6 +1009,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 167004063}
     m_Modifications:
+    - target: {fileID: 1802268313842802067, guid: 679b8f48657ecc941bfcc346a4a74fba, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4733951789350033409, guid: 679b8f48657ecc941bfcc346a4a74fba, type: 3}
       propertyPath: m_LocalPosition.x
       value: -51
@@ -1029,6 +1053,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4929269583089540293, guid: 679b8f48657ecc941bfcc346a4a74fba, type: 3}
+      propertyPath: m_Size.x
+      value: 5.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929269583089540293, guid: 679b8f48657ecc941bfcc346a4a74fba, type: 3}
+      propertyPath: m_Size.y
+      value: 7.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929269583089540293, guid: 679b8f48657ecc941bfcc346a4a74fba, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5fae74da4e0cfd5439900327c7b5eeca, type: 3}
+    - target: {fileID: 4929269583089540293, guid: 679b8f48657ecc941bfcc346a4a74fba, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5707184260490458087, guid: 679b8f48657ecc941bfcc346a4a74fba, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 584c3815ec3d8d2468f4e228bcb791bf, type: 2}
     - target: {fileID: 9004097928515688400, guid: 679b8f48657ecc941bfcc346a4a74fba, type: 3}
       propertyPath: m_Name
       value: PlayerPrefab1

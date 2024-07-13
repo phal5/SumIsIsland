@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
 
-public class BombExplosion : MonoBehaviour
+public class BombExplosionTest : MonoBehaviour
 {
     public float bombRadius = 1f;
     GameObject myIsland1;
