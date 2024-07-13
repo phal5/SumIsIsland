@@ -42,10 +42,14 @@ public class BombExplosion : MonoBehaviour
 
         for(int i = 0; i < n; i++)
         {
-            Transform cur_child = cur_obj.transform.GetChild(i).gameObject.transform;
-            if (isWithinRadius(cur_child))
+            GameObject cur_child = cur_obj.transform.GetChild(i).gameObject;
+            if (isWithinRadius(cur_child.transform))
             {
-                
+                FloatingObject floating = cur_child.GetComponent<FloatingObject>();
+                floating.SetConnection(false);
+                giveExplosionPower(cur_child);
+                cur_child.transform.gameObject.tag = "FloatObj";
+                checkIslandFloatables(floating);
             }
         }
         
@@ -55,6 +59,8 @@ public class BombExplosion : MonoBehaviour
     private bool isWithinRadius(Transform other)
     {
         float distance = Vector3.Distance(transform.position, other.position);
+        
+
         if(distance < bombRadius) // 반경 내에 있는 경우
         {
             return true;
@@ -62,6 +68,21 @@ public class BombExplosion : MonoBehaviour
         else
         {
             return false;
+        }
+    }
+
+    private void giveExplosionPower(GameObject floatable)
+    {
+        float sqrMag = (floatable.transform.position - transform.position).sqrMagnitude;
+        Vector3 direction = (floatable.transform.position - transform.position).normalized;
+
+        if (sqrMag < 0.1) 
+        {
+            floatable.GetComponent<Rigidbody>().velocity += direction * 10000000;
+        }
+        else
+        {
+            floatable.GetComponent<Rigidbody>().velocity += direction / sqrMag;
         }
     }
 }
