@@ -5,6 +5,7 @@ using UnityEngine;
 public class FloatingObject : MonoBehaviour
 {
     public bool isConnected = false;
+    bool _onceConnected = false;
 
     int isPulledBy = 0;
     Rigidbody rb;
@@ -13,6 +14,7 @@ public class FloatingObject : MonoBehaviour
 
     Rigidbody _harpoon;
     Transform _harpoonParent;
+
     bool _sink;
 
     void Start()
@@ -62,14 +64,14 @@ public class FloatingObject : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        if (other.collider.tag == "Harpoon1" && isPulledBy == 0) // 작살 1에 맞은 경우
+        if (other.collider.tag == "Harpoon1" && isPulledBy == 0 && !_onceConnected) // 작살 1에 맞은 경우
         {
             isPulledBy = 1;
             _harpoon = other.rigidbody;
             gameObject.tag = "Untagged";
             Fix(_harpoon);
         }
-        else if (other.collider.tag == "Harpoon2" && isPulledBy == 0) // 작살 2에 맞은 경우
+        else if (other.collider.tag == "Harpoon2" && isPulledBy == 0 && !_onceConnected) // 작살 2에 맞은 경우
         {
             isPulledBy = 2;
             _harpoon = other.rigidbody;
@@ -83,6 +85,7 @@ public class FloatingObject : MonoBehaviour
             Loosen(_harpoon);
             SetConnection(true);
             isPulledBy = 0;
+            _onceConnected = true;
         }
         else if(other.collider.tag == "Island2" && isPulledBy == 2) // 작살 2에 끌어당겨져 섬2에 붙은 경우
         {
@@ -91,6 +94,7 @@ public class FloatingObject : MonoBehaviour
             Loosen(_harpoon);
             SetConnection(true);
             isPulledBy = 0;
+            _onceConnected = true;
         }
         else if(other.collider.tag == "Island1" || other.collider.tag == "Island2") // 섬1,2에 튕긴 경우
         {
@@ -114,6 +118,7 @@ public class FloatingObject : MonoBehaviour
 
     public void SetConnection(bool connected)
     {
+        rb.isKinematic = false;
         isConnected = connected;
         rb.angularVelocity = Vector3.zero;
         rb.velocity = Vector3.zero;

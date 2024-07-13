@@ -5,6 +5,7 @@ using UnityEngine;
 public class BombTimer : MonoBehaviour
 {
     [SerializeField] DestroyPlatforms _explosive;
+    [SerializeField] Collider _collider;
     [SerializeField] float _timer = 5f;
 
     bool _startTicking = false;
@@ -18,13 +19,15 @@ public class BombTimer : MonoBehaviour
             if(_timer < 0)
             {
                 _explosive.DestroyPlatformsInsideRadius();
+                _collider.enabled = false;
+                Destroy(this);
             }
         }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.layer == LayerMask.NameToLayer("Island"))
+        if(collision.gameObject.layer == LayerMask.NameToLayer("Island") && _startTicking)
         {
             _explosive.DestroyPlatformsInsideRadius();
         }
