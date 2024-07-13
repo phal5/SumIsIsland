@@ -9,6 +9,7 @@ public class PlayerAnim : MonoBehaviour
     public int PlayerIndex;
     
     SpriteRenderer mySpriteRenderer;
+    Transform HarpoonHead;
 
     public List<Sprite> mySprites = new List<Sprite>();
     float angle;
@@ -20,9 +21,8 @@ public class PlayerAnim : MonoBehaviour
     {
         mySpriteRenderer = GetComponent<SpriteRenderer>();
         myAnimator = GetComponent<Animator>();
-        Transform HarpoonHead = transform.parent.transform.Find("HarpoonAxis").transform;
-        Quaternion myRotation = HarpoonHead.rotation;
-        angle = myRotation.y;
+        HarpoonHead = transform.parent.transform.Find("HarpoonAxis").transform;
+        angle = HarpoonHead.rotation.eulerAngles.y;
 
         localScale = transform.localScale;
         Vector2 tmp = localScale;
@@ -32,6 +32,8 @@ public class PlayerAnim : MonoBehaviour
 
     void Update()
     {
+        angle = HarpoonHead.rotation.eulerAngles.y;
+        Debug.Log(angle);
         if (Input.GetKey(myLeft)) //왼쪽 인풋일 때
         {
             myAnimator.SetBool("isWalk", true);
@@ -39,16 +41,12 @@ public class PlayerAnim : MonoBehaviour
             // 내가 북쪽에 있으면 왼쪽으로 걷기
             if (angle >= 0 && angle <= 180 && PlayerIndex == 2) //p2 왼쪽으로 해주기
             {
-                //Quaternion rotation = Quaternion.Euler(-90, 0, -90);
-                //transform.rotation = rotation;
                 Flip();
             }
 
             // 내가 남쪽에 있으면 오른쪽으로 걷기
             else if (angle > 180 && PlayerIndex == 1) //p1 오른쪽으로 해주기
             {
-                //Quaternion rotation = Quaternion.Euler(-90, 0, -90);
-                //transform.rotation = rotation;
                 Flip();
             }
             else { Unflip(); }
@@ -62,26 +60,15 @@ public class PlayerAnim : MonoBehaviour
             
             if (angle >= 0 && angle <= 180 && PlayerIndex == 1) //p1 오른쪽으로 해주기
             {
-                //Quaternion rotation = Quaternion.Euler(-90, 0, -90);
-                //transform.rotation = rotation;
                 Flip();
             }
 
             // 내가 남쪽에 있으면 왼쪽으로 걷기
             else if ((angle > 180 || angle < 0) && PlayerIndex == 2) //p2 왼쪽으로 해주기
             {
-                //Quaternion rotation = Quaternion.Euler(-90, 0, -90);
-                //transform.rotation = rotation;
                 Flip();
             }
             else { Unflip(); }
-            /*
-            else
-            {
-                Quaternion rotation = Quaternion.Euler(90, 90, 0);
-                transform.rotation = rotation;
-            }
-            */
 
         }
         else
