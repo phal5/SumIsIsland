@@ -22,7 +22,7 @@ public class Harpoon : MonoBehaviour
         if(_launcher._state == HarpoonLauncher.HarpoonState.COOL)
         {
             transform.LookAt(transform.position + _launcherTransform.up, Vector3.up);
-            transform.position = _launcherTransform.position + _launcher._harpoonOffset * transform.forward - Vector3.up * 0.1f;
+            transform.position = _launcherTransform.position + _launcher._harpoonOffset * transform.forward - Vector3.up * 0.01f;
         }
     }
 

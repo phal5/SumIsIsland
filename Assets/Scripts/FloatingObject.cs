@@ -146,7 +146,7 @@ public class FloatingObject : MonoBehaviour
         rigidBody.velocity = Vector3.zero;
         rigidBody.isKinematic = true;
 
-        rb.centerOfMass = rigidBody.transform.localPosition;
+        //rb.centerOfMass = rigidBody.transform.localPosition;
     }
 
     void Loosen(Rigidbody rigidBody)
