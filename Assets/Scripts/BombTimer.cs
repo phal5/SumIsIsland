@@ -5,7 +5,6 @@ using UnityEngine;
 public class BombTimer : MonoBehaviour
 {
     [SerializeField] DestroyPlatforms _explosive;
-    [SerializeField] float _radius = 15;
     [Space(10f)]
     [SerializeField] Collider _collider;
     [SerializeField] float _timer = 5f;
@@ -60,8 +59,8 @@ public class BombTimer : MonoBehaviour
 
     void SetOff()
     {
-        _explosive.DestroyPlatformsInsideRadius(_radius);
-        foreach (Collider collider in Physics.OverlapSphere(transform.position, _radius))
+        _explosive.DestroyPlatformsInsideRadius();
+        foreach (Collider collider in Physics.OverlapSphere(transform.position, _explosive._radius))
         {
             if (collider.gameObject.TryGetComponent(out Bomb bomb))
             {
