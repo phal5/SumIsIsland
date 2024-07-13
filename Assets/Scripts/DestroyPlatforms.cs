@@ -7,11 +7,13 @@ using UnityEngine.Events;
 public class DestroyPlatforms : MonoBehaviour
 {
     [SerializeField] float _force;
+    [SerializeField] float _damage;
+    public float _radius;
     [SerializeField] UnityEvent _onDestroy;
 
-    public void DestroyPlatformsInsideRadius(float radius)
+    public void DestroyPlatformsInsideRadius()
     {
-        foreach (Collider collider in CollidersInsideRadius(radius))
+        foreach (Collider collider in CollidersInsideRadius(_radius))
         {
             if(collider.gameObject.layer == LayerMask.NameToLayer("Island") && collider.gameObject.TryGetComponent(out FloatingObject fO))
             {
@@ -28,6 +30,8 @@ public class DestroyPlatforms : MonoBehaviour
                 rb.velocity = (collider.transform.position - transform.position).normalized / divisor * _force;
             }
         }
+        if ((IslandManager.Island1().position - transform.position).sqrMagnitude < _radius * _radius) ;
+        if ((IslandManager.Island2().position - transform.position).sqrMagnitude < _radius * _radius) ;
         _onDestroy.Invoke();
     }
 

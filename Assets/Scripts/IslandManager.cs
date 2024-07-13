@@ -46,4 +46,6 @@ public class IslandManager : MonoBehaviour
         if (is1) _instance._platforms1.Remove(self);
         else _instance._platforms2.Remove(self);
     }
+
+    public static bool
 }
