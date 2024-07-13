@@ -8,10 +8,12 @@ public class Harpoon : MonoBehaviour
     [SerializeField] HarpoonLauncher _launcher;
     [SerializeField] Transform _launcherTransform;
 
+    AudioSource arrowhit;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        arrowhit = GameObject.Find("arrowhit").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -27,5 +29,10 @@ public class Harpoon : MonoBehaviour
     public void Return()
     {
         _launcher.SetReturn();
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        arrowhit.Play();
     }
 }
