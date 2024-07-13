@@ -5,12 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Wall
+  - Island2
+  - Island1
   - FloatObj
+  - Bomb
   - Harpoon1
   - Harpoon2
-  - Island1
-  - Island2
-  - Bomb
   layers:
   - Default
   - TransparentFX
