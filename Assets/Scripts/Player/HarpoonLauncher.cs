@@ -42,9 +42,9 @@ public class HarpoonLauncher : MonoBehaviour
                 else
                 {
                     SetLayerOfDirectChildren(_headRigidbody.transform, "NonColliding");
-                    _forceReturnTimer -= Time.deltaTime;
-                    if (_forceReturnTimer < 0) ForceReturn();
                 }
+                _forceReturnTimer -= Time.deltaTime;
+                if (_forceReturnTimer < 0) ForceReturn();
                 break;
         }
     }

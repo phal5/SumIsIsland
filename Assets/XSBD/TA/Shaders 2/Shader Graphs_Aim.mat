@@ -43,7 +43,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _WaveLength: 0.45
-    - _speed: 0.1
+    - _speed: 0.3
     m_Colors:
     - _Color: {r: 1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
