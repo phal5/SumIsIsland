@@ -436,7 +436,8 @@ MonoBehaviour:
   FloatsObj:
   - {fileID: 7861163853025115392, guid: 92cd3cb570c3e634291d34313f909473, type: 3}
   GenPos: {fileID: 90999138}
-  isGenerate: 0
+  _delay: 1.75
+  _randomness: 1.5
 --- !u!4 &318655304
 Transform:
   m_ObjectHideFlags: 0
@@ -1455,6 +1456,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b0f23a4c8a70dc43924c9bae21b1ddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _destroyOnTouch: 1
+  _reflection: {x: 1, y: 1, z: 1}
 --- !u!65 &1249624033
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1780,6 +1783,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b0f23a4c8a70dc43924c9bae21b1ddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _destroyOnTouch: 1
+  _reflection: {x: 1, y: 1, z: 1}
 --- !u!65 &1418708139
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2032,6 +2037,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b0f23a4c8a70dc43924c9bae21b1ddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _destroyOnTouch: 1
+  _reflection: {x: 1, y: 1, z: 1}
 --- !u!54 &1912924138
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2205,6 +2212,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b0f23a4c8a70dc43924c9bae21b1ddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _destroyOnTouch: 1
+  _reflection: {x: 1, y: 1, z: 1}
 --- !u!65 &1998480125
 BoxCollider:
   m_ObjectHideFlags: 0
