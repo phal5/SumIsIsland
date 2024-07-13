@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class FloatingObject : MonoBehaviour
 {
-    public float speed = 0.5f;
     public bool isConnected = false;
-    private int isPulledBy = 0;
-    float acc = 0.001f;
-    Rigidbody rb;
 
+    int isPulledBy = 0;
+    Rigidbody rb;
     Transform Island1Pos;
     Transform Island2Pos;
 
@@ -40,44 +38,58 @@ public class FloatingObject : MonoBehaviour
         }        
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnCollisionEnter(Collision other)
     {
-        if (other.tag == "Harpoon1" && !isConnected) // 작살 1에 맞은 경우
+        if (other.collider.tag == "Harpoon1" && !isConnected) // 작살 1에 맞은 경우
         {
             isPulledBy = 1;
+            Debug.Log("Hit");
         }
-        else if (other.tag == "Harpoon2" && !isConnected) // 작살 2에 맞은 경우
+        else if (other.collider.tag == "Harpoon2" && !isConnected) // 작살 2에 맞은 경우
         {
             isPulledBy = 2;
         }
-        else if(other.tag == "Island1" &&  isPulledBy == 1) // 작살 1에 끌어당겨져 섬1에 붙은 경우
+        else if(other.collider.tag == "Island1" &&  isPulledBy == 1) // 작살 1에 끌어당겨져 섬1에 붙은 경우
         {
             transform.parent = other.transform;
             transform.gameObject.tag = "Island1";
-            isConnected = true;
+            SetConnection(true);
             isPulledBy = 0;
         }
-        else if(other.tag == "Island2" && isPulledBy == 2) // 작살 2에 끌어당겨져 섬2에 붙은 경우
+        else if(other.collider.tag == "Island2" && isPulledBy == 2) // 작살 2에 끌어당겨져 섬2에 붙은 경우
         {
             transform.parent = other.transform;
             transform.gameObject.tag = "Island2";
-            isConnected = true;
+            SetConnection(true);
             isPulledBy = 0;
         }
-        else if(other.tag == "Island1" || other.tag == "Island2") // 섬1,2에 튕긴 경우
+        else if(other.collider.tag == "Island1" || other.collider.tag == "Island2") // 섬1,2에 튕긴 경우
         {
-            // 충돌 지점과 충돌 물체의 중심을 이용해 법선 벡터 계산
-            Vector3 contactPoint = other.ClosestPoint(transform.position);
-            Vector3 normal = (transform.position - contactPoint).normalized;
-
-            // 입사 벡터는 현재 이동 방향
-            Vector3 incomingVector = transform.forward;
-
-            // 반사 벡터 계산
-            Vector3 reflectVector = Vector3.Reflect(incomingVector, normal);
-
-            // 물체의 이동 방향을 반사 벡터로 설정
-            transform.forward = reflectVector;
+            Physics.Raycast(transform.position, rb.velocity, out RaycastHit hit);
+            if (hit.collider == other.collider)
+            {
+                rb.velocity += Vector3.Dot(hit.normal, rb.velocity) * hit.normal * 2;
+            }
+            else
+            {
+                rb.velocity *= -1;
+            }
         }
+    }
+
+    private void OnDestroy()
+    {
+        SetConnection(false);
+        Destroy(gameObject);
+    }
+
+    void SetConnection(bool connected)
+    {
+        isConnected = connected;
+        rb.angularVelocity = Vector3.zero;
+        rb.velocity = Vector3.zero;
+        rb.isKinematic = connected;
+
+        gameObject.layer = LayerMask.NameToLayer(connected ? "Island" : "Default");
     }
 }

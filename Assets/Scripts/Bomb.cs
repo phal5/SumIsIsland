@@ -25,12 +25,12 @@ public class Bomb : MonoBehaviour
         rb.velocity -= Vector3.Dot(flow.normalized, rb.velocity - flow) * flow.normalized * (1 - FlowManager.Resistance());
     }
 
-    void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
-        if(other.collider.tag == "Wall")
+        if (other.GetComponent<Collider>().tag == "Wall")
         {
             Physics.Raycast(transform.position, rb.velocity, out RaycastHit hit);
-            if(hit.collider == other.collider)
+            if (hit.collider == other.GetComponent<Collider>())
             {
                 rb.velocity += Vector3.Dot(hit.normal, rb.velocity) * hit.normal * 2;
             }
@@ -38,14 +38,6 @@ public class Bomb : MonoBehaviour
             {
                 rb.velocity *= -1;
             }
-
-        }
-        else if (other.collider.tag == "Harpoon1" || other.collider.tag == "Harpoon2")
-        {
-            
-        }
-        else
-        {
 
         }
     }
