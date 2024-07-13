@@ -28,16 +28,15 @@ public class Harpoon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CoolDown();
+        if (!_return) CoolDown();
         Rotate();
-        Launch();
+        if (_cool && Input.GetKeyDown(_launch)) Launch();
         if (!_return) ReturnTimer();
     }
 
     private void FixedUpdate()
     {
-        Vector3 flow = FlowManager.Flow() + _launcher.transform.position - _headRigidbody.transform.position;
-        _headRigidbody.velocity = (_headRigidbody.velocity - flow) * (1 - FlowManager.Resistance()) + flow;
+        if (_return) Return();
     }
 
     void CoolDown()
@@ -52,22 +51,21 @@ public class Harpoon : MonoBehaviour
         }
     }
 
+    //Fire & Forget
     void Launch()
     {
-        if (_cool && Input.GetKeyDown(_launch))
-        {
-            _headRigidbody.transform.position = _launcher.position;
-            _headRigidbody.transform.LookAt(_headRigidbody.transform.position + transform.forward, Vector3.up);
+        _headRigidbody.transform.SetParent(transform.parent);
+        _headRigidbody.transform.position = _launcher.position;
+        _headRigidbody.transform.LookAt(_headRigidbody.transform.position + transform.forward, Vector3.up);
 
-            _headRigidbody.velocity = transform.forward * _launchSpeed;
-            _headRigidbody.angularVelocity = Vector3.zero;
+        _headRigidbody.velocity = transform.forward * _launchSpeed;
+        _headRigidbody.angularVelocity = Vector3.zero;
 
-            _coolDownTimer = _coolDown;
-            _cool = false;
-            
-            _returnTimer = _returnAfter;
-            _return = false;
-        }
+        _coolDownTimer = _coolDown;
+        _cool = false;
+
+        _returnTimer = _returnAfter;
+        _return = false;
     }
 
     void Rotate()
@@ -87,7 +85,21 @@ public class Harpoon : MonoBehaviour
 
     void ReturnTimer()
     {
-        SetLayerOfDirectChildren(_headRigidbody.transform, "NonColliding");
+        if (_returnTimer < 0)
+        {
+            SetLayerOfDirectChildren(_headRigidbody.transform, "NonColliding");
+            _return = true;
+        }
+    }
+
+    void Return()
+    {
+        Vector3 flow = FlowManager.Flow();
+
+        _headRigidbody.velocity = (_headRigidbody.velocity - flow) * (1 - FlowManager.Resistance()) + flow +
+            (_launcher.transform.position - _headRigidbody.transform.position).normalized * Time.fixedDeltaTime * _returnSpeed;
+        _headRigidbody.transform.rotation *=
+            Quaternion.Lerp(Quaternion.identity, Quaternion.LookRotation(_headRigidbody.velocity, Vector3.up), Time.fixedDeltaTime);
     }
 
     void SetLayerOfDirectChildren(Transform parent, string layerName)

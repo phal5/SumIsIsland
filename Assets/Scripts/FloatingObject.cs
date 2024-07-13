@@ -83,7 +83,7 @@ public class FloatingObject : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void SetConnection(bool connected)
+    public void SetConnection(bool connected)
     {
         isConnected = connected;
         rb.angularVelocity = Vector3.zero;
