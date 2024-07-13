@@ -9,6 +9,8 @@ public class BombTimer : MonoBehaviour
     [SerializeField] float _timer = 5f;
 
     bool _startTicking = false;
+    bool _destroyTicking = false;
+    float _destroyTimer = 1;
 
     // Update is called once per frame
     void Update()
@@ -23,6 +25,14 @@ public class BombTimer : MonoBehaviour
                 Destroy(this);
             }
         }
+        else if (_destroyTicking)
+        {
+            _destroyTimer -= Time.deltaTime;
+            if(_destroyTimer < 0)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -35,5 +45,10 @@ public class BombTimer : MonoBehaviour
         {
             _startTicking = true;
         }
+    }
+
+    public void Destroy()
+    {
+        _destroyTicking = true;
     }
 }
