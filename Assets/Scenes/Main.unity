@@ -4116,6 +4116,7 @@ GameObject:
   - component: {fileID: 1696936958}
   - component: {fileID: 1696936961}
   - component: {fileID: 1696936960}
+  - component: {fileID: 1696936962}
   m_Layer: 0
   m_Name: Generator
   m_TagString: Untagged
@@ -4195,6 +4196,29 @@ MonoBehaviour:
   _randomness: 1.5
   boost: 0
   allowDuplicate: 0
+--- !u!114 &1696936962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1696936957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ea73fe7190c38b4cacfba12f262eaf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FloatsObj:
+  - {fileID: 7861163853025115392, guid: c551ddad3542886488c3904ff0f3c8f0, type: 3}
+  - {fileID: 7861163853025115392, guid: 299c1a6375e48ba489f760f63520158d, type: 3}
+  - {fileID: 7861163853025115392, guid: 5ef60f6f8cd025f4f9b9685970f30a66, type: 3}
+  - {fileID: 7861163853025115392, guid: 7a0293990ced87a42aeabb7b124574b3, type: 3}
+  - {fileID: 7861163853025115392, guid: 16b4b4a7c585d3847bf80524e0f04b77, type: 3}
+  GenPos: {fileID: 0}
+  _delay: 1.75
+  _randomness: 1.5
+  boost: 0
+  allowDuplicate: 1
 --- !u!1 &1726398064
 GameObject:
   m_ObjectHideFlags: 0
