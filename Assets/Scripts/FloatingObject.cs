@@ -141,20 +141,20 @@ public class FloatingObject : MonoBehaviour
     void Fix(Rigidbody rigidBody)
     {
         _harpoonParent = rigidBody.transform.parent;
-        rigidBody.transform.parent = transform;
+        rigidBody.transform.SetParent(transform);
         rigidBody.angularVelocity = Vector3.zero;
         rigidBody.velocity = Vector3.zero;
         rigidBody.isKinematic = true;
 
-        //rb.centerOfMass = rigidBody.transform.localPosition;
+        rb.centerOfMass = rigidBody.transform.localPosition;
     }
 
     void Loosen(Rigidbody rigidBody)
     {
-        rigidBody.transform.parent = _harpoonParent;
+        rigidBody.transform.SetParent(_harpoonParent);
         rigidBody.isKinematic = false;
-        if (rigidBody.TryGetComponent(out Harpoon harpoon)) harpoon.Return();
 
+        if (rigidBody.TryGetComponent(out Harpoon harpoon)) harpoon.Return();
         rb.centerOfMass = Vector3.zero;
     }
 

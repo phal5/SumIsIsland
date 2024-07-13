@@ -24,6 +24,10 @@ public class Harpoon : MonoBehaviour
             transform.LookAt(transform.position + _launcherTransform.up, Vector3.up);
             transform.position = _launcherTransform.position + _launcher._harpoonOffset * transform.forward - Vector3.up * 0.01f;
         }
+        else
+        {
+            RetainHeight();
+        }
     }
 
     public void Return()
@@ -34,5 +38,10 @@ public class Harpoon : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         arrowhit.Play();
+    }
+
+    void RetainHeight()
+    {
+        transform.position += Vector3.Scale(_launcherTransform.position - transform.position, Vector3.up) - Vector3.up * 0.01f;
     }
 }
