@@ -18,59 +18,56 @@ public class ScoreKeeper : MonoBehaviour
 
     public TextMeshProUGUI timer_text;
 
+    static ScoreKeeper _instance;
+
+    private void Start()
+    {
+        _instance = this;
+    }
+
     private void Update()
     {
         worldTimer += Time.deltaTime;
         timer_text.text = (timeLimit - worldTimer).ToString();
+        checkGameOver();
     }
 
-    public void HitByBomb(int player_index)
+    public static void HitByBomb(int player_index)
     {
         if(player_index == 1)
         {
-            HP_1P -= bombDamage;
+            _instance.HP_1P -= _instance.bombDamage;
         }
         else
         {
-            HP_2P -= bombDamage;
+            _instance.HP_2P -= _instance.bombDamage;
         }
+        
     }
 
-    public void HitByShark(int player_index)
+    public static void HitByShark(int player_index)
     {
         if (player_index == 1)
         {
-            HP_1P -= sharkDamage;
+            _instance.HP_1P -= _instance.sharkDamage;
         }
         else
         {
-            HP_2P -= sharkDamage;
+            _instance.HP_2P -= _instance.sharkDamage;
         }
     }
 
-    public void Hit(int player_index, float damage)
+    private static void checkGameOver()
     {
-        if (player_index == 1)
-        {
-            HP_1P -= damage;
-        }
-        else
-        {
-            HP_2P -= damage;
-        }
-    }
-
-    private void checkGameOver()
-    {
-        if(HP_1P < 0)
+        if(_instance.HP_1P < 0)
         {
             SceneManager.LoadScene("Ending");
         }
-        else if(HP_2P < 0)
+        else if(_instance.HP_2P < 0)
         {
             SceneManager.LoadScene("Ending");
         }
-        else if(worldTimer >= timeLimit)
+        else if(worldTimer >= _instance.timeLimit)
         {
             SceneManager.LoadScene("Ending");
         }

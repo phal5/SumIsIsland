@@ -47,4 +47,18 @@ public class IslandManager : MonoBehaviour
         else _instance._platforms2.Remove(self);
     }
 
+<<<<<<< Updated upstream
+=======
+    public static Transform GetRandomPlatform()
+    {
+        int len = _instance._platforms1.Count + _instance._platforms2.Count;
+        int id = Random.Range(1, len + 1);
+        if(id > _instance._platforms1.Count)
+        {
+            id -= _instance._platforms1.Count;
+            return _instance._platforms2[id - 1];
+        }
+        else return _instance._platforms1[id - 1];
+    }
+>>>>>>> Stashed changes
 }

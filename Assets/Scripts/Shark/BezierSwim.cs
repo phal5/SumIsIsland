@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BezierSwim : MonoBehaviour
+public class Shark : MonoBehaviour
 {
     public enum SharkState { DORMANT, ROUNDING, DIVING, ATTACKING};
 

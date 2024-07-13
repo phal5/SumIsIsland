@@ -7,7 +7,6 @@ using UnityEngine.Events;
 public class DestroyPlatforms : MonoBehaviour
 {
     [SerializeField] float _force;
-    [SerializeField] float _damage;
     public float _radius;
     [SerializeField] UnityEvent _onDestroy;
 
