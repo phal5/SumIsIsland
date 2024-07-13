@@ -458,8 +458,16 @@ PrefabInstance:
       value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1802268313842802067, guid: 679b8f48657ecc941bfcc346a4a74fba, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1802268313842802067, guid: 679b8f48657ecc941bfcc346a4a74fba, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1802268313842802067, guid: 679b8f48657ecc941bfcc346a4a74fba, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3880604730210696351, guid: 679b8f48657ecc941bfcc346a4a74fba, type: 3}
       propertyPath: myLeft
@@ -564,6 +572,18 @@ PrefabInstance:
     - target: {fileID: 4929269583089540293, guid: 679b8f48657ecc941bfcc346a4a74fba, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5435175279797169921, guid: 679b8f48657ecc941bfcc346a4a74fba, type: 3}
+      propertyPath: _launch
+      value: 111
+      objectReference: {fileID: 0}
+    - target: {fileID: 5435175279797169921, guid: 679b8f48657ecc941bfcc346a4a74fba, type: 3}
+      propertyPath: _rotateCW
+      value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 5435175279797169921, guid: 679b8f48657ecc941bfcc346a4a74fba, type: 3}
+      propertyPath: _rotateCCW
+      value: 107
       objectReference: {fileID: 0}
     - target: {fileID: 5707184260490458087, guid: 679b8f48657ecc941bfcc346a4a74fba, type: 3}
       propertyPath: m_Controller
@@ -1078,6 +1098,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 167004063}
     m_Modifications:
     - target: {fileID: 1802268313842802067, guid: 679b8f48657ecc941bfcc346a4a74fba, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1802268313842802067, guid: 679b8f48657ecc941bfcc346a4a74fba, type: 3}
       propertyPath: m_LocalScale.y
       value: 10
       objectReference: {fileID: 0}
@@ -1220,6 +1244,14 @@ PrefabInstance:
     - target: {fileID: 4929269583089540293, guid: 679b8f48657ecc941bfcc346a4a74fba, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5435175279797169921, guid: 679b8f48657ecc941bfcc346a4a74fba, type: 3}
+      propertyPath: _rotateCW
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5435175279797169921, guid: 679b8f48657ecc941bfcc346a4a74fba, type: 3}
+      propertyPath: _rotateCCW
+      value: 113
       objectReference: {fileID: 0}
     - target: {fileID: 5707184260490458087, guid: 679b8f48657ecc941bfcc346a4a74fba, type: 3}
       propertyPath: m_Controller
