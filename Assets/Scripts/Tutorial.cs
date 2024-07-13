@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class Tutorial : MonoBehaviour
 {
-    SpriteRenderer spriteRenderer;
+    Image image;
     public List<Sprite> tutorialSprites = new List<Sprite>();
     int index = 0;
 
@@ -19,6 +19,7 @@ public class Tutorial : MonoBehaviour
     {
         leftButton.gameObject.SetActive(false);
         okButton.gameObject.SetActive(false);
+        image = GetComponent<Image>();
     }
 
     public void TutorialLeftRightButton(bool isLeft)
@@ -38,6 +39,7 @@ public class Tutorial : MonoBehaviour
                 index++;
             }
         }
+        Debug.Log(index);
         if (index == 0) //첫번째 슬라이드면
         {
             leftButton.gameObject.SetActive(false);
@@ -53,7 +55,7 @@ public class Tutorial : MonoBehaviour
             rightButton.gameObject.SetActive(true);
             okButton.gameObject.SetActive(false);
         }
-        spriteRenderer.sprite = tutorialSprites[index];
+        image.sprite = tutorialSprites[index];
     }
 
     public void TutorialFinished()

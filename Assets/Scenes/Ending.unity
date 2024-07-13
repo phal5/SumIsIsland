@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &68448307
 RectTransform:
   m_ObjectHideFlags: 0
@@ -417,6 +417,7 @@ GameObject:
   m_Component:
   - component: {fileID: 592513619}
   - component: {fileID: 592513618}
+  - component: {fileID: 592513620}
   m_Layer: 0
   m_Name: Script
   m_TagString: Untagged
@@ -451,6 +452,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &592513620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 592513617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd0b287a63d680e42ab2dbd99cc5109d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Winner_1P: {fileID: 0}
+  Winner_2P: {fileID: 0}
 --- !u!1 &849174856
 GameObject:
   m_ObjectHideFlags: 0
@@ -707,8 +722,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 592513618}
-        m_TargetAssemblyTypeName: BackToMenu, Assembly-CSharp
-        m_MethodName: BakcToMenu
+        m_TargetAssemblyTypeName: LoadScenes, Assembly-CSharp
+        m_MethodName: BackToMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -773,7 +788,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1820719299
 RectTransform:
   m_ObjectHideFlags: 0
