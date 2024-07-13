@@ -43,7 +43,7 @@ public class FloatingObject : MonoBehaviour
                     break;
                 case 2:
                     {
-                        Vector3 pull = (Island1Pos.position - transform.position).normalized * 200;
+                        Vector3 pull = (Island2Pos.position - transform.position).normalized * 200;
                         rb.velocity = (rb.velocity - pull) * 0.95f + pull;
                         break;
                     }

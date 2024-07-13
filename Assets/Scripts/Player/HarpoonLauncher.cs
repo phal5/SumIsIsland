@@ -11,7 +11,6 @@ public class HarpoonLauncher : MonoBehaviour
     [SerializeField] Transform _launcher;
     [SerializeField] Rigidbody _headRigidbody;
     [Space(10f)]
-    [SerializeField] float _coolDown;
     [SerializeField] float _returnAfter;
     [SerializeField] float _returnSpeed;
     [Space(10f)]
@@ -22,12 +21,17 @@ public class HarpoonLauncher : MonoBehaviour
     [SerializeField] KeyCode _rotateCCW;
     [SerializeField] KeyCode _launch;
 
+    public float _harpoonOffset { get; private set; }
     public HarpoonState _state { get; private set; }
     float _returnTimer;
+
+    //Trivial
+    float _headRotateTimer;
 
     private void Start()
     {
         SetLayerOfDirectChildren(_headRigidbody.transform, "NonColliding");
+        _harpoonOffset = (_launcher.position - _headRigidbody.transform.position).magnitude;
     }
 
     // Update is called once per frame
@@ -70,11 +74,11 @@ public class HarpoonLauncher : MonoBehaviour
     {
         if (Input.GetKey(_rotateCCW))
         {
-            transform.Rotate(Vector3.up * _rotationSpeed * Time.deltaTime);
+            transform.Rotate(Vector3.down * _rotationSpeed * Time.deltaTime);
         }
         if (Input.GetKey(_rotateCW))
         {
-            transform.Rotate(Vector3.down * _rotationSpeed * Time.deltaTime);
+            transform.Rotate(Vector3.up * _rotationSpeed * Time.deltaTime);
         }
         _launcher.position = Vector3.Scale(_launcher.position, Vector3.one + Vector3.down);
         _launcher.position += (transform.forward.z * -0.01f + transform.position.y) * Vector3.up;
@@ -91,13 +95,15 @@ public class HarpoonLauncher : MonoBehaviour
 
     void Return()
     {
-        Vector3 flow = (_launcher.transform.position - _headRigidbody.transform.position).normalized * _returnSpeed;
-
+        Vector3 flow = (_launcher.position + _launcher.transform.up * _harpoonOffset - _headRigidbody.transform.position).normalized * _returnSpeed;
         _headRigidbody.velocity = (_headRigidbody.velocity - flow) * 0.95f + flow;
-        _headRigidbody.transform.rotation =
-            Quaternion.Lerp(Quaternion.LookRotation(-_headRigidbody.velocity, Vector3.up), _headRigidbody.transform.rotation, Time.fixedDeltaTime);
 
-        if((_headRigidbody.transform.position - _launcher.position).sqrMagnitude < 1)
+        float proximity = (_headRigidbody.transform.position - _launcher.position - _launcher.transform.up * _harpoonOffset).sqrMagnitude;
+
+        _headRigidbody.transform.rotation =
+            Quaternion.Lerp(Quaternion.LookRotation(-_headRigidbody.velocity, Vector3.up), _headRigidbody.transform.rotation, (proximity > 100) ? 0.95f : proximity * 0.01f);
+
+        if(proximity < 1)
         {
             _headRigidbody.velocity = Vector3.zero;
             _headRigidbody.angularVelocity = Vector3.zero;
@@ -117,5 +123,6 @@ public class HarpoonLauncher : MonoBehaviour
     {
         SetLayerOfDirectChildren(_headRigidbody.transform, "NonColliding");
         _state = HarpoonState.RETURN;
+        _headRotateTimer = 0;
     }
 }
