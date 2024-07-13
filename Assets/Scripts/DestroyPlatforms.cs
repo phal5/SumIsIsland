@@ -20,13 +20,13 @@ public class DestroyPlatforms : MonoBehaviour
                 fO.StartSinking();
                 collider.gameObject.tag = "FloatObj";
                 collider.enabled = false;
-                if(collider.gameObject.TryGetComponent(out Rigidbody rb))
-                {
-                    float divisor = (collider.transform.position - transform.position).sqrMagnitude;
-                    divisor = (divisor < 0.01f) ? 0.01f : divisor;
+            }
+            if (collider.gameObject.TryGetComponent(out Rigidbody rb))
+            {
+                float divisor = (collider.transform.position - transform.position).sqrMagnitude;
+                divisor = (divisor < 0.01f) ? 0.01f : divisor;
 
-                    rb.velocity = (collider.transform.position - transform.position).normalized / divisor * _force;
-                }
+                rb.velocity = (collider.transform.position - transform.position).normalized / divisor * _force;
             }
         }
         _onDestroy.Invoke();
