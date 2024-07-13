@@ -12,7 +12,16 @@ public class BombTimer : MonoBehaviour
 
     bool _startTicking = false;
     bool _destroyTicking = false;
-    float _destroyTimer = 1;
+    float _destroyTimer = 0.75f;
+
+    AudioSource bomb;
+    
+
+    void Start()
+    {
+        bomb = GameObject.Find("bomb").GetComponent<AudioSource>();
+        
+    }
 
     // Update is called once per frame
     void Update()
@@ -63,6 +72,7 @@ public class BombTimer : MonoBehaviour
                 timer._startTicking = true;
             }
         }
+        bomb.Play();
     }
 
     public void Destroy()

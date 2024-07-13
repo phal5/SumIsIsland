@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class HarpoonLauncher : MonoBehaviour
@@ -22,10 +23,15 @@ public class HarpoonLauncher : MonoBehaviour
     float _returnTimer;
     [SerializeField] float _forceReturnTimer;
 
+    AudioSource draw;
+    AudioSource arrowlaunch;
+
     private void Start()
     {
         SetLayerOfDirectChildren(_headRigidbody.transform, "NonColliding");
         _harpoonOffset = (_launcher.position - _headRigidbody.transform.position).magnitude;
+        draw = GameObject.Find("draw").GetComponent<AudioSource>();
+        arrowlaunch = GameObject.Find("arrowlaunch").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -51,7 +57,21 @@ public class HarpoonLauncher : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_state == HarpoonState.RETURN) Return();
+        if (_state == HarpoonState.RETURN)
+        {
+            Return();
+            if (!draw.isPlaying)
+            {
+                draw.Play();
+            }
+        }
+        else
+        {
+            if (draw.isPlaying)
+            {
+                draw.Stop();
+            }
+        }
     }
 
     //Fire & Forget
@@ -67,7 +87,10 @@ public class HarpoonLauncher : MonoBehaviour
 
         _state = HarpoonState.LAUNCHED;
         _returnTimer = _returnAfter;
-        _forceReturnTimer = 5;
+
+        _forceReturnTimer = 7;
+
+        arrowlaunch.Play();
     }
 
     void Rotate()
@@ -121,6 +144,7 @@ public class HarpoonLauncher : MonoBehaviour
             Destroy(parent);
         }
         _state = HarpoonState.RETURN;
+
     }
 
     void SetLayerOfDirectChildren(Transform parent, string layerName)
