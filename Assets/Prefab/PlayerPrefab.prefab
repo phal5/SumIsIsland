@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 5197505551034835616}
   - component: {fileID: 7932084371030601846}
   - component: {fileID: 6785257149104583274}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Launcher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -204,7 +204,7 @@ GameObject:
   - component: {fileID: 1802268313842802067}
   - component: {fileID: 3557632340875321611}
   - component: {fileID: 4708259095133238095}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PlayerCharacter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -220,7 +220,7 @@ Transform:
   m_GameObject: {fileID: 3400863518927174026}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: 0, y: 1.5, z: -0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 10, y: 21.919998, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -369,7 +369,7 @@ GameObject:
   m_Component:
   - component: {fileID: 977254603851321522}
   - component: {fileID: 5435175279797169921}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: HarpoonAxis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -407,10 +407,10 @@ MonoBehaviour:
   _launcher: {fileID: 5197505551034835616}
   _headRigidbody: {fileID: 8611079997720447560}
   _coolDown: 2
-  _returnAfter: 0
-  _returnSpeed: 0
+  _returnAfter: 3
+  _returnSpeed: 100
   _rotationSpeed: 60
-  _launchSpeed: 60
+  _launchSpeed: 100
   _rotateCW: 113
   _rotateCCW: 100
   _launch: 119
@@ -478,7 +478,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4733951789350033409}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PlayerPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -513,6 +513,7 @@ GameObject:
   m_Component:
   - component: {fileID: 399067130670189904}
   - component: {fileID: 8611079997720447560}
+  - component: {fileID: 9035950374775474170}
   m_Layer: 6
   m_Name: HarpoonHead
   m_TagString: Harpoon1
@@ -529,7 +530,7 @@ Transform:
   m_GameObject: {fileID: 9222714287702252927}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 15.5, y: 0, z: 0}
+  m_LocalPosition: {x: 15.5, y: -0.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -565,4 +566,18 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 84
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
+--- !u!114 &9035950374775474170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9222714287702252927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9644d856c7c39a448b6241817f8f906, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _launcher: {fileID: 5435175279797169921}
+  _launcherTransform: {fileID: 5197505551034835616}
