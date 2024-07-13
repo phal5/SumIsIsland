@@ -679,7 +679,7 @@ GameObject:
   - component: {fileID: 8247689989992155822}
   - component: {fileID: 1835996773076144102}
   - component: {fileID: 3760474522613112310}
-  - component: {fileID: 4962379364865070719}
+  - component: {fileID: 9201109855353974523}
   m_Layer: 3
   m_Name: Island1
   m_TagString: Island1
@@ -765,8 +765,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spinSpeed: 22.5
---- !u!65 &4962379364865070719
-BoxCollider:
+--- !u!136 &9201109855353974523
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -783,8 +783,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 10, y: 2, z: 10}
+  serializedVersion: 2
+  m_Radius: 2.92
+  m_Height: 15
+  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4248071642434251199
 GameObject:
@@ -1126,7 +1128,7 @@ GameObject:
   - component: {fileID: 7662247855107828384}
   - component: {fileID: 2112615642492747113}
   - component: {fileID: 1227654560382980026}
-  - component: {fileID: 7737509673437011453}
+  - component: {fileID: 6276456093431214987}
   m_Layer: 3
   m_Name: Island2
   m_TagString: Island2
@@ -1212,8 +1214,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spinSpeed: 22.5
---- !u!65 &7737509673437011453
-BoxCollider:
+--- !u!136 &6276456093431214987
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1230,8 +1232,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 10, y: 2, z: 10}
+  serializedVersion: 2
+  m_Radius: 2.92
+  m_Height: 15
+  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6506727070601399944
 GameObject:
