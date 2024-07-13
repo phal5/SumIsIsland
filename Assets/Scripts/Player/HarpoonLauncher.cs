@@ -74,7 +74,7 @@ public class HarpoonLauncher : MonoBehaviour
             transform.Rotate(Vector3.up * _rotationSpeed * Time.deltaTime);
         }
         _launcher.position = Vector3.Scale(_launcher.position, Vector3.one + Vector3.down);
-        _launcher.position += (transform.forward.z * -0.01f + transform.position.y) * Vector3.up;
+        _launcher.position += (transform.position.y + ((transform.forward.z > 0) ? -0.01f : 0.01f)) * Vector3.up;
     }
 
     void ReturnTimer()
