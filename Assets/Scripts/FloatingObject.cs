@@ -29,7 +29,7 @@ public class FloatingObject : MonoBehaviour
     {
         if (_sink)
         {
-            transform.position += Vector3.down * Time.deltaTime * 0.5f;
+            transform.position += Vector3.down * Time.deltaTime * 0.1f;
         }
     }
 
