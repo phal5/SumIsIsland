@@ -29,10 +29,14 @@ public class ScoreKeeper : MonoBehaviour
 
     bool isGameOngoing = false;
 
+    private void Awake()
+    {
+        _instance = this;
+    }
+
     void Start()
     {
         StartCoroutine(StartDelay());
-        _instance = this;
         myGameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
