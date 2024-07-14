@@ -9,7 +9,7 @@ public class ScoreKeeper : MonoBehaviour
 {
     public float HP_1P = 1.0f;
     public float HP_2P = 1.0f;
-    public float timeLimit = 120f;
+    public float timeLimit = 150f;
 
     float bombDamage = 0.4f;
     float sharkDamage = 0.2f;
@@ -22,17 +22,35 @@ public class ScoreKeeper : MonoBehaviour
 
     GameManager myGameManager;
 
+    public AudioSource KO;
+
+    bool isGameOngoing = false;
+
     void Start()
     {
+        Time.timeScale = 0;
+        StartCoroutine(StartDelay());
         _instance = this;
         myGameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
+    private IEnumerator StartDelay()
+    {
+        yield return new WaitForSeconds(2f);
+        isGameOngoing = true;
+        Time.timeScale = 1;
+    }
+
     private void Update()
     {
-        worldTimer += Time.deltaTime;
-        timer_text.text = (timeLimit - worldTimer).ToString();
-        checkGameOver();
+        if (isGameOngoing)
+        {
+            worldTimer += Time.deltaTime;
+            float time_left = Mathf.Round(((timeLimit - worldTimer) * 100f) / 100f);
+            timer_text.text = time_left.ToString();
+            checkGameOver();
+        }
+        
     }
 
     public static void HitByBomb(int player_index)
@@ -60,17 +78,17 @@ public class ScoreKeeper : MonoBehaviour
         }
     }
 
-    private static void checkGameOver()
+    private void checkGameOver()
     {
         if(_instance.HP_1P < 0)
         {
             _instance.myGameManager.winner_index = 2;
-            SceneManager.LoadScene("Ending");
+            StartCoroutine(GoToEnding());
         }
         else if(_instance.HP_2P < 0)
         {
             _instance.myGameManager.winner_index = 1;
-            SceneManager.LoadScene("Ending");
+            StartCoroutine(GoToEnding());
         }
         else if(worldTimer >= _instance.timeLimit)
         {
@@ -82,7 +100,16 @@ public class ScoreKeeper : MonoBehaviour
             {
                 _instance.myGameManager.winner_index = 2;
             }
-            SceneManager.LoadScene("Ending");
+            StartCoroutine(GoToEnding());
         }
+    }
+
+    private IEnumerator GoToEnding()
+    {
+        KO.Play();
+        Time.timeScale = 0;
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene("Ending");
+
     }
 }
