@@ -10,7 +10,6 @@ public class CutIn : MonoBehaviour
     [SerializeField] Transform _begin;
     [SerializeField] Transform _end;
     [Space(30f)]
-    [SerializeField] bool _test;
     [SerializeField] bool _return = false;
 
     float _moveTimer = 0;
@@ -27,11 +26,6 @@ public class CutIn : MonoBehaviour
     void Update()
     {
         if(_moving) Animate();
-        if (_test)
-        {
-            Move();
-            _test = false;
-        }
     }
 
     void Animate()
@@ -51,7 +45,7 @@ public class CutIn : MonoBehaviour
         }
     }
 
-    public void Move()
+    public void Play()
     {
         _moving = true;
         _forward ^= true;
