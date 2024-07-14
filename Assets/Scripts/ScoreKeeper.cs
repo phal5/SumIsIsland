@@ -37,6 +37,9 @@ public class ScoreKeeper : MonoBehaviour
     private void Awake()
     {
         _instance = this;
+        _instance.myGameManager.winner_index = 0;
+        _instance.myGameManager.time_over = false;
+
     }
 
     void Start()
