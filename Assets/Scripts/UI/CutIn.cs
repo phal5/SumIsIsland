@@ -47,7 +47,10 @@ public class CutIn : MonoBehaviour
 
     public void Play()
     {
-        _moving = true;
-        _forward ^= true;
+        if (!_moving)
+        {
+            _moving = true;
+            _forward ^= true;
+        }
     }
 }
