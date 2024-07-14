@@ -9,7 +9,7 @@ public class ScoreKeeper : MonoBehaviour
 {
     public float HP_1P = 1.0f;
     public float HP_2P = 1.0f;
-    public float timeLimit = 120f;
+    public float timeLimit = 150f;
 
     float bombDamage = 0.4f;
     float sharkDamage = 0.2f;
@@ -31,7 +31,8 @@ public class ScoreKeeper : MonoBehaviour
     private void Update()
     {
         worldTimer += Time.deltaTime;
-        timer_text.text = (timeLimit - worldTimer).ToString();
+        float time_left = Mathf.Round(((timeLimit - worldTimer) * 100f) / 100f);
+        timer_text.text = time_left.ToString();
         checkGameOver();
     }
 

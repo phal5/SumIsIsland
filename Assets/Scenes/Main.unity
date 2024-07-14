@@ -684,6 +684,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 275160657}
   m_CullTransparentMesh: 1
+--- !u!1 &294049040
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 294049041}
+  - component: {fileID: 294049043}
+  - component: {fileID: 294049042}
+  m_Layer: 5
+  m_Name: Image (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &294049041
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 294049040}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 532088646}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -400}
+  m_SizeDelta: {x: 870, y: 446}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &294049042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 294049040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 9840ddb1228245240aa8bb57399fdeff, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &294049043
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 294049040}
+  m_CullTransparentMesh: 1
 --- !u!1 &327248183
 GameObject:
   m_ObjectHideFlags: 0
@@ -1352,6 +1427,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 294049041}
   - {fileID: 831240597}
   - {fileID: 621377309}
   - {fileID: 1434460947}
@@ -1796,7 +1872,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP_1P: 1
   HP_2P: 1
-  timeLimit: 60
+  timeLimit: 150
   timer_text: {fileID: 831240595}
 --- !u!1 &750498211
 GameObject:
@@ -2061,7 +2137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &892635064
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3510,8 +3586,8 @@ MonoBehaviour:
   - {fileID: 7861163853025115392, guid: d12859ac733ab0b439e75cea3d1ae41a, type: 3}
   - {fileID: 7861163853025115392, guid: 531afac506b641e498d45f976569882e, type: 3}
   GenPos: {fileID: 410864633}
-  _delay: 3
-  _randomness: 1.5
+  _delay: 4
+  _randomness: 1
   boost: 0
   allowDuplicate: 1
 --- !u!4 &1696936959
@@ -3544,8 +3620,8 @@ MonoBehaviour:
   FloatsObj:
   - {fileID: 7861163853025115392, guid: 92cd3cb570c3e634291d34313f909473, type: 3}
   GenPos: {fileID: 410864633}
-  _delay: 5
-  _randomness: 1.5
+  _delay: 9
+  _randomness: 2
   boost: 0
   allowDuplicate: 1
 --- !u!114 &1696936961
@@ -3582,7 +3658,7 @@ MonoBehaviour:
   - {fileID: 7861163853025115392, guid: 76aeabfe4c1f08f40948b2d3be8ec102, type: 3}
   GenPos: {fileID: 410864633}
   _delay: 7
-  _randomness: 1.5
+  _randomness: 2
   boost: 0
   allowDuplicate: 0
 --- !u!114 &1696936962
@@ -3604,8 +3680,8 @@ MonoBehaviour:
   - {fileID: 7861163853025115392, guid: 7a0293990ced87a42aeabb7b124574b3, type: 3}
   - {fileID: 7861163853025115392, guid: 16b4b4a7c585d3847bf80524e0f04b77, type: 3}
   GenPos: {fileID: 410864633}
-  _delay: 5
-  _randomness: 1.5
+  _delay: 24
+  _randomness: 0
   boost: 0
   allowDuplicate: 1
 --- !u!1 &1726398064
