@@ -16,13 +16,14 @@ public class Shark : MonoBehaviour
     [SerializeField] float _sinkDepth = 5;
 
     Transform _target;
-    [SerializeField]SharkState _state = SharkState.ROUNDING;
+    SharkState _state = SharkState.ROUNDING;
     Vector3 _direction;
     Vector3 _prevPosition;
     float _showDownTimer = 0;
     float _y = 0;
     float _k = 0;
     bool _flip = false;
+    bool _beginAttack = false;
 
     // Update is called once per frame
     void Update()
@@ -100,7 +101,11 @@ public class Shark : MonoBehaviour
             if(_y > 0)
             {
                 _y = 0;
-                _state = SharkState.DIVING;
+                if(_beginAttack || ScoreKeeper.worldTimer > _scoreKeeper.timeLimit * 0.3f)
+                {
+                    _state = SharkState.DIVING;
+                    _beginAttack = true;
+                }
             }
         }
     }

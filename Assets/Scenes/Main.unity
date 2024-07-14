@@ -1796,7 +1796,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP_1P: 1
   HP_2P: 1
-  timeLimit: 120
+  timeLimit: 60
   timer_text: {fileID: 831240595}
 --- !u!1 &750498211
 GameObject:
