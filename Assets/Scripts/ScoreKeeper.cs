@@ -11,6 +11,9 @@ public class ScoreKeeper : MonoBehaviour
     public float HP_2P = 1.0f;
     public float timeLimit = 150f;
 
+    [SerializeField] CutIn _cutIn1;
+    [SerializeField] CutIn _cutIn2;
+
     float bombDamage = 0.4f;
     float sharkDamage = 0.2f;
 
@@ -58,10 +61,12 @@ public class ScoreKeeper : MonoBehaviour
         if(player_index == 1)
         {
             _instance.HP_1P -= _instance.bombDamage;
+            _instance._cutIn2.Play();
         }
         else
         {
             _instance.HP_2P -= _instance.bombDamage;
+            _instance._cutIn1.Play();
         }
         
     }
