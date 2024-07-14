@@ -28,7 +28,6 @@ public class ScoreKeeper : MonoBehaviour
 
     void Start()
     {
-        Time.timeScale = 0;
         StartCoroutine(StartDelay());
         _instance = this;
         myGameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -36,9 +35,10 @@ public class ScoreKeeper : MonoBehaviour
 
     private IEnumerator StartDelay()
     {
-        yield return new WaitForSeconds(2f);
+        Time.timeScale = 0f;
+        yield return new WaitForSecondsRealtime(2f);
         isGameOngoing = true;
-        Time.timeScale = 1;
+        Time.timeScale = 1f;
     }
 
     private void Update()
@@ -108,7 +108,7 @@ public class ScoreKeeper : MonoBehaviour
     {
         KO.Play();
         Time.timeScale = 0;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSecondsRealtime(2f);
         SceneManager.LoadScene("Ending");
 
     }
