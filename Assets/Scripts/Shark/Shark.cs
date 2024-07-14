@@ -6,19 +6,24 @@ public class Shark : MonoBehaviour
 {
     public enum SharkState { DORMANT, ROUNDING, DIVING, ATTACKING};
 
+    [SerializeField] ScoreKeeper _scoreKeeper;
+    [SerializeField] GameObject _sharkpedoPrefab;
+    [Space (10f)]
     [SerializeField] float _speed = 0.1f;
     [SerializeField] Vector3 _up = new Vector3();
     [SerializeField] Vector3 _halfV1 = Vector3.right + Vector3.forward;
     [SerializeField] Vector3 _halfV2 = Vector3.right - Vector3.forward;
     [SerializeField] float _sinkDepth = 5;
 
+    Transform _target;
     SharkState _state = SharkState.ROUNDING;
     Vector3 _direction;
     Vector3 _prevPosition;
+    float _showDownTimer = 0;
     float _y = 0;
     float _k = 0;
     bool _flip = false;
-    [SerializeField] bool _sink = false;
+    bool _beginAttack = false;
 
     // Update is called once per frame
     void Update()
@@ -35,17 +40,18 @@ public class Shark : MonoBehaviour
             case SharkState.DIVING:
                 {
                     Sink();
+                    SetPosition();
+                    SetDirection();
                     break;
                 }
             case SharkState.ATTACKING:
                 {
-                    
+                    Attack();
                     break;
                 }
             case SharkState.DORMANT:
                 {
-                    Sink();
-
+                    WaitPatiently();
                     break;
                 }
         }
@@ -74,42 +80,58 @@ public class Shark : MonoBehaviour
 
     void Sink()
     {
-        if(_y > -_sinkDepth)
+        if(_y >= -_sinkDepth)
         {
             _y -= Time.deltaTime;
             if(_y < -_sinkDepth)
             {
                 _y = -_sinkDepth;
+
                 _state = SharkState.ATTACKING;
+                _target = IslandManager.GetRandomPlatform();
             }
         }
     }
 
     void Rise()
     {
-        if(_y < 0)
+        if(_y <= 0)
         {
-            _y += Time.deltaTime;
+            _y += Time.deltaTime * 2.4f;
             if(_y > 0)
             {
                 _y = 0;
-                _state = SharkState.DIVING;
+                if(_beginAttack || ScoreKeeper.worldTimer > _scoreKeeper.timeLimit * 0.3f)
+                {
+                    _state = SharkState.DIVING;
+                    _beginAttack = true;
+                }
             }
         }
     }
 
     void Attack()
     {
+        if(Instantiate(_sharkpedoPrefab, _target.position - Vector3.up * 5, Quaternion.identity).TryGetComponent(out SharkTorpedo sharkPedo))
+            sharkPedo.SetTarget(_target);
+        _target = null;
 
+        _state = SharkState.DORMANT;
+        _showDownTimer = NextScreenTime();
     }
 
     void WaitPatiently()
     {
-
+        _showDownTimer -= Time.deltaTime;
+        if(_showDownTimer < 0 )
+        {
+            _state = SharkState.ROUNDING;
+        }
     }
 
-    public void SetSink(bool sink)
+    float NextScreenTime()
     {
-        _sink = sink;
+        float left = _scoreKeeper.timeLimit - ScoreKeeper.worldTimer;
+        return (left * 0.3f) * Random.Range(0.9f, 1.1f);
     }
 }

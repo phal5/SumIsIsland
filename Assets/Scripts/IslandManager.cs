@@ -49,6 +49,8 @@ public class IslandManager : MonoBehaviour
     public static Transform GetRandomPlatform()
     {
         int len = _instance._platforms1.Count + _instance._platforms2.Count;
+        if (len == 0) return (Random.value > 0.5f) ? _instance._island1 : _instance._island2;
+
         int id = Random.Range(1, len + 1);
         if(id > _instance._platforms1.Count)
         {
