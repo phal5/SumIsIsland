@@ -1947,7 +1947,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "00:00\uAC00\uB098\uB2E4"
+  m_text: 00:00
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2467,6 +2467,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 236493285185859952, guid: fed0e36a5b79a6941882436e6b5c1960,
+        type: 3}
+      propertyPath: _scoreKeeper
+      value: 
+      objectReference: {fileID: 747209811}
+    - target: {fileID: 236493285185859952, guid: fed0e36a5b79a6941882436e6b5c1960,
+        type: 3}
+      propertyPath: _sharkpedoPrefab
+      value: 
+      objectReference: {fileID: 8904219074224919149, guid: 93361da86ec56694ab375a1ad9d76870,
+        type: 3}
     - target: {fileID: 514903980127426436, guid: fed0e36a5b79a6941882436e6b5c1960,
         type: 3}
       propertyPath: m_LocalPosition.x
