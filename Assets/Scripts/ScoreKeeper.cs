@@ -29,6 +29,11 @@ public class ScoreKeeper : MonoBehaviour
 
     bool isGameOngoing = false;
 
+    public GameObject eStart;
+    public GameObject eFinish;
+    public GameObject e1PWin;
+    public GameObject e2PWin;
+
     private void Awake()
     {
         _instance = this;
@@ -36,6 +41,7 @@ public class ScoreKeeper : MonoBehaviour
 
     void Start()
     {
+        Instantiate(eStart);
         StartCoroutine(StartDelay());
         myGameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
@@ -116,6 +122,9 @@ public class ScoreKeeper : MonoBehaviour
     private IEnumerator GoToEnding()
     {
         KO.Play();
+        Instantiate(eFinish);
+        if (_instance.myGameManager.winner_index == 1) { Instantiate(e1PWin); }
+        else if (_instance.myGameManager.winner_index == 2) { Instantiate(e2PWin); }
         Time.timeScale = 0;
         yield return new WaitForSecondsRealtime(2f);
         SceneManager.LoadScene("Ending");

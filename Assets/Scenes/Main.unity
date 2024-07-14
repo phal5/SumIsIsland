@@ -2015,6 +2015,10 @@ MonoBehaviour:
   _cutIn2: {fileID: 577289405}
   timer_text: {fileID: 831240595}
   KO: {fileID: 1967532981}
+  eStart: {fileID: 717175733306476844, guid: 0f3b3c41b38b78741aa618c087c865f2, type: 3}
+  eFinish: {fileID: 717175733306476844, guid: 2a195d6f8a96e8b4cb827ab0d3bd52b3, type: 3}
+  e1PWin: {fileID: 717175733306476844, guid: eab841ad3eca65c458b14f1243656f9b, type: 3}
+  e2PWin: {fileID: 717175733306476844, guid: dc3ee5e2f7b95f8409d0f4122a1bfd57, type: 3}
 --- !u!1 &750498211
 GameObject:
   m_ObjectHideFlags: 0
